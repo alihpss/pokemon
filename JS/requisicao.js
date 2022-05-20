@@ -2,7 +2,7 @@ const botao = document.querySelector('#listarPokemon');
 // img = https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.pngz
 const res = document.querySelector('#res')
 
-window.addEventListener('load' , () => {
+window.addEventListener('click' , () => {
     for (let i = 1; i <= 151; i++) {
         const requisicao = new XMLHttpRequest(); 
 
@@ -14,9 +14,8 @@ window.addEventListener('load' , () => {
 
             respostaJson = JSON.parse(resposta);
 
-            criarPokemon(respostaJson);
-            console.log(criarPokemon(respostaJson));
-
+            let pokemon = criarPokemon(respostaJson);
+            console.log(pokemon);
             })
     }
 })
