@@ -1,8 +1,9 @@
 const botao = document.querySelector('#listarPokemon');
-// img = https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.pngz
+let divPokemons = document.querySelector('#lista-pokemons');
+
 const res = document.querySelector('#res')
 
-window.addEventListener('click' , () => {
+window.addEventListener('load' , () => {
     for (let i = 1; i <= 151; i++) {
         const requisicao = new XMLHttpRequest(); 
 
@@ -15,8 +16,9 @@ window.addEventListener('click' , () => {
             respostaJson = JSON.parse(resposta);
 
             let pokemon = criarPokemon(respostaJson);
-            console.log(pokemon);
-            })
+            
+            gerarNovoIcone(divPokemons, pokemon.imagem, pokemon.nome, pokemon.tipo);
+        })
     }
 })
 
@@ -24,9 +26,11 @@ function criarPokemon(pokemon) {
 
     let poke = {
 
-    nome: pokemon.name,
-    tipo: pokemon.types[0].type.name
+    nome: pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1),
+    tipo: pokemon.types[0].type.name.charAt(0).toUpperCase() + pokemon.types[0].type.name.slice(1),
+    imagem: pokemon.sprites.front_default
 
     }
+
     return poke;
 }
