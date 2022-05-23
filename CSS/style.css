@@ -23,6 +23,12 @@ header img {
     object-fit: cover;
 }
 
+#buscarPokemon {
+    width: 20%;
+    padding: 10px;
+    margin-left: 5vmax;
+}
+
 nav {
     width: calc(100% - 162.42px);
 }
@@ -94,8 +100,8 @@ ul, li {
 }
 
 #lista-pokemons {
-    background-color: greenyellow;
-    width: 90%;
+    background-color: inherit;
+    width: 80%;
     margin: 50px auto;
     display: flex;
     flex-wrap: wrap;
@@ -103,7 +109,6 @@ ul, li {
 }
 
 .pokemons {
-    background-color: red;
     display: grid;
     justify-items: center;
     grid-gap: 7px;
@@ -113,7 +118,54 @@ ul, li {
     border: 1px solid black;
     box-shadow: 0px 0px 10px -1px black;
     min-width: 15%;
+    text-transform: capitalize;
 }
 .pokemons input {
     width: 30%;
+}
+
+.grass {
+    background-color: #2db42d;
+}
+.fire {
+    background-color: #ff3434;
+}
+.water {
+    background-color: #398efb;
+}
+.bug {
+    background-color: greenyellow;
+}
+.normal {
+    background-color: #ffdd87;
+}
+.poison {
+    background-color: #6e2bb5;
+}
+.electric {
+    background-color: #d1ce00;
+}
+.ground {
+    background-color: #555400;
+}
+.fairy {
+    background-color: #ff5ecf;
+}
+.fighting {
+   background-color: #af0000;
+}
+.psychic {
+    background-color: #a13b82;
+}
+.rock{
+    background-color: #b1a667;
+}
+.ghost {
+    background-color: #424242;
+}
+.ice {
+    background-color: #83c5c9;
+}
+.dragon {
+    background-color: #1c4547;
 }

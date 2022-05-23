@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 const gerarNovoIcone = (menu,atributoImg, spanNome, spanTipo) => {
     let div = document.createElement('div');
     let img = document.createElement('img')
@@ -18,6 +10,8 @@ const gerarNovoIcone = (menu,atributoImg, spanNome, spanTipo) => {
     span2.textContent = spanTipo;
     input.value = "+ info"
     div.classList.add('pokemons');
+    div.classList.add(spanTipo);
+
 
     div.appendChild(img)
     div.appendChild(span1)
