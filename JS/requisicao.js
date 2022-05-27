@@ -34,10 +34,10 @@ const requisicaoPokemons = (inicioPersonagens,limitePersonagens) => {
            // outrasInfo
 
             let divPokemons = document.querySelectorAll('.pokemons')
-            //console.log(divPokemons[0]);
+            console.log(divPokemons[0]);
         })
 };
-requisicaoPokemons(1,24);
+requisicaoPokemons(152,160);
 
 
 

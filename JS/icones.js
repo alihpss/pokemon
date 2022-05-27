@@ -1,7 +1,7 @@
 const gerarNovoIcone = (tipo, atributoImg, spanNome, spanTipo) => {
     let div = document.createElement('div');
     let img = document.createElement('img')
-    let span1 = document.createElement('span');
+    let span1 = document.createElement('strong');
     let span2 = document.createElement('span');
     let input = document.createElement('input');
     let menu = document.getElementById('lista-pokemons')
