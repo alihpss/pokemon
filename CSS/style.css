@@ -99,13 +99,23 @@ ul, li {
     list-style: none;
 }
 
+.conteudo {
+    display: flex;
+    justify-content: space-between;
+}
+
+#filtroPokemons {
+    width: 20%;
+    background: pink;
+}
+
 #lista-pokemons {
     background-color: inherit;
-    width: 80%;
-    margin: 50px auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    width: 70%;
+    margin: 50px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
 }
 
 .pokemons {
@@ -172,20 +182,19 @@ ul, li {
 
 #modal {
     display: flex;
-    width: 50%;
-    height: 20rem;
-    background: white ;
+    width: 40%;
+    height: 25rem;
+    background: black;
     position: fixed;
-    left: 0;
-    top: 0;
+    left: 30%;
+    top: 12rem;
     right: 0;
     bottom: 0;
     margin: auto;
-
     z-index: -1;
 }
 
 #img-modal {
     width: 15rem;
-    height: 60%;
+    height: 50%;
 }
