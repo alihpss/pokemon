@@ -123,25 +123,29 @@ ul, li {
     justify-items: center;
     grid-gap: 7px;
     padding: 12px 25px;
-    border-radius: 40px;
+    border-radius: 18px;
     margin: 20px 1vmax;
     border: 1px solid black;
     box-shadow: 0px 0px 10px -1px black;
     min-width: 15%;
     text-transform: capitalize;
+    background: white;
 }
 .pokemons input {
     width: 30%;
 }
 
 .grass {
-    background-color: #2db42d;
+    border: 2px solid #2db42d;
+    color: #2db42d;
 }
 .fire {
-    background-color: #ff3434;
+    border: 2px solid #ff3434;
+    color: #ff3434;
 }
 .water {
-    background-color: #398efb;
+    border: 2px solid #398efb;
+    color: #398efb;
 }
 .bug {
     background-color: greenyellow;
@@ -182,16 +186,16 @@ ul, li {
 
 #modal {
     display: flex;
-    width: 40%;
+    width: 70%;
     height: 25rem;
     background: black;
     position: fixed;
-    left: 30%;
+    left: 20%;
     top: 12rem;
     right: 0;
     bottom: 0;
     margin: auto;
-    z-index: -1;
+    z-index: 1;
 }
 
 #img-modal {

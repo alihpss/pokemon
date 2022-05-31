@@ -23,21 +23,38 @@ const requisicaoPokemons = (inicioPersonagens,limitePersonagens) => {
             for (let index = 0; index < pokemonPromises.length; index++) {
                 let pokemon = pokemons[index]
                 const types = pokemon.types.map(typeInfo => typeInfo.type.name);
-                console.log(pokemons[index]);
+                //console.log(pokemons[index]);
                 gerarNovoIcone( types[0], pokemon.sprites.front_default, pokemon.name, types.join(' | '));
 
-                
-                
+                meuTeste(pokemon)
+                console.log(meuTeste(pokemon));
+                //console.log(pokemon.nome);
                //console.log(teste);
             };
 
-           // outrasInfo
+
 
             let divPokemons = document.querySelectorAll('.pokemons')
-            console.log(divPokemons[0]);
+            divPokemons.forEach(divizinha => {
+                divizinha.addEventListener('click', (event) => {
+                    console.log(event.target.parentNode);
+                })
+            })
         })
 };
 requisicaoPokemons(152,160);
+
+const meuTeste = (pok) => {
+    let poo = {
+        nome: pok.name,
+        img: pok.sprites.other.home.front_default,
+        stats: pok.stats,
+        altura: pok.height,
+        peso: pok.weight
+    }
+
+    return poo
+}
 
 
 
