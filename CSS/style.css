@@ -115,7 +115,7 @@ ul, li {
     margin: 50px 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    justify-items: center;
+    justify-items: start;
 }
 
 .pokemons {
@@ -127,7 +127,7 @@ ul, li {
     margin: 20px 1vmax;
     border: 1px solid black;
     box-shadow: 0px 0px 10px -1px black;
-    min-width: 15%;
+    min-width: 50%;
     text-transform: capitalize;
     background: white;
 }
@@ -186,19 +186,46 @@ ul, li {
 
 #modal {
     display: flex;
-    width: 70%;
-    height: 25rem;
+    width: 40%;
+    max-height: 30rem;
     background: black;
     position: fixed;
     left: 20%;
-    top: 12rem;
+    top: 7rem;
     right: 0;
     bottom: 0;
     margin: auto;
+    border-radius: 15px;
     z-index: 1;
 }
 
+.lado-esquerdo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    width: 30%;
+    background: #83c5c9;
+    border-radius: 14px 0 0 14px;
+}
+
+#svg-modal {
+    width: 2rem;
+    height: 2rem;
+    background: ghostwhite;
+    padding: 4px;
+    border-radius: 20px;
+    margin: 3rem 2rem 0 0;
+}
+
 #img-modal {
-    width: 15rem;
-    height: 50%;
+    max-width: 100%;
+    margin-top: 4rem;
+    position: relative;
+    left: 2vmax;
+}
+
+.lado-direito {
+    background: rgb(56, 56, 54);
+    width: 70%;
 }
