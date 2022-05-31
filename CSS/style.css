@@ -21,12 +21,13 @@ header {
 header img {
     max-height: 100px;
     object-fit: cover;
+    margin-left: 3vmax;
 }
 
 #buscarPokemon {
     width: 20%;
     padding: 10px;
-    margin-left: 5vmax;
+    margin-left: 2.5vmax;
 }
 
 nav {
@@ -127,7 +128,7 @@ ul, li {
     margin: 20px 1vmax;
     border: 1px solid black;
     box-shadow: 0px 0px 10px -1px black;
-    min-width: 50%;
+    min-width: 60%;
     text-transform: capitalize;
     background: white;
 }
@@ -197,6 +198,7 @@ ul, li {
     margin: auto;
     border-radius: 15px;
     z-index: 1;
+
 }
 
 .lado-esquerdo {
@@ -228,4 +230,41 @@ ul, li {
 .lado-direito {
     background: rgb(56, 56, 54);
     width: 70%;
+    border-radius: 0 14px 14px 0;
+    padding: 2.5rem 2rem 2.5rem 2rem;
+}
+
+#div-name {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 1rem;
+}
+
+#tipo, #info {
+    display: flex;
+    margin-bottom: 2.3rem;
+}
+
+h2 {
+    font-weight: bolder;
+    font-size: 2.3rem;
+    margin-right: 1rem;
+}
+
+.tag {
+    background: #fdfdfd;
+    padding: 0 1.1rem;
+    margin-right: 5px;
+    color: #1d5b91;
+    font-weight: bolder;
+    font-size: 1.1rem;
+}
+
+#info {
+    justify-content: space-between;
+}
+
+#info li span {
+    display: block;
+    margin-bottom: 0.4rem;
 }

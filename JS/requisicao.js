@@ -42,7 +42,7 @@ const requisicaoPokemons = (inicioPersonagens,limitePersonagens) => {
             })
         })
 };
-requisicaoPokemons(152,160);
+requisicaoPokemons(152,172);
 
 const meuTeste = (pok) => {
     let poo = {
