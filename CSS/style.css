@@ -123,7 +123,6 @@ ul, li {
     display: grid;
     justify-items: center;
     grid-gap: 7px;
-    padding: 12px 25px;
     border-radius: 18px;
     margin: 20px 1vmax;
     border: 1px solid black;
@@ -131,6 +130,14 @@ ul, li {
     min-width: 60%;
     text-transform: capitalize;
     background: white;
+}
+
+.pokemons span {
+    padding-bottom: 15px;
+}
+
+.pokemons img {
+    padding-top: 8px;
 }
 .pokemons input {
     width: 30%;
@@ -197,7 +204,7 @@ ul, li {
     bottom: 0;
     margin: auto;
     border-radius: 15px;
-    z-index: 1;
+    z-index: -1;
 }
 
 #close-modal {

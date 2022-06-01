@@ -19,30 +19,34 @@ const requisicaoPokemons = (inicioPersonagens,limitePersonagens) => {
 
     Promise.all(pokemonPromises)
         .then(pokemons => {
+
+            
             
             for (let index = 0; index < pokemonPromises.length; index++) {
                 let pokemon = pokemons[index]
                 const types = pokemon.types.map(typeInfo => typeInfo.type.name);
                 //console.log(pokemons[index]);
-                gerarNovoIcone( types[0], pokemon.sprites.front_default, pokemon.name, types.join(' | '));
+                gerarNovoIcone( types[0],pokemon.id, pokemon.sprites.front_default, pokemon.name, types.join(' | '));
 
                 meuTeste(pokemon)
-                console.log(meuTeste(pokemon));
+                //console.log(meuTeste(pokemon));
                 //console.log(pokemon.nome);
                //console.log(teste);
             };
 
+            let divPokemons = document.querySelectorAll('.pokemons');
 
-
-            let divPokemons = document.querySelectorAll('.pokemons')
             divPokemons.forEach(divizinha => {
-                divizinha.addEventListener('click', (event) => {
-                    console.log(event.target.parentNode);
+                divizinha.addEventListener('click', () => {
+                    let idPokemon = Number(divizinha.querySelector('.id').textContent) -1;
+                    console.log(idPokemon);
+                    console.log(meuTeste(pokemons[idPokemon]));
                 })
-            })
-        })
+            });
+
+        });
 };
-requisicaoPokemons(152,172);
+requisicaoPokemons(1,20);
 
 const meuTeste = (pok) => {
     let poo = {

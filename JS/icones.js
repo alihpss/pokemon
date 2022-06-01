@@ -1,23 +1,27 @@
-const gerarNovoIcone = (tipo, atributoImg, spanNome, spanTipo) => {
+const gerarNovoIcone = (tipo,id, atributoImg, nome, spanTipo) => {
     let div = document.createElement('div');
     let img = document.createElement('img')
-    let span1 = document.createElement('strong');
+    let strong = document.createElement('strong');
+    let listaId = document.createElement('span');
     let span2 = document.createElement('span');
     let menu = document.getElementById('lista-pokemons')
 
 
     img.setAttribute('src', atributoImg);
-    span1.textContent = spanNome;
+    strong.textContent = nome;
     span2.textContent = spanTipo;
+    listaId.textContent = id;
 
-    span1.classList.add('span-name')
+    strong.classList.add('span-name')
     div.classList.add('pokemons');
     div.classList.add(tipo);
+    listaId.classList.add('id');
 
 
     div.appendChild(img)
-    div.appendChild(span1)
+    div.appendChild(strong)
     div.appendChild(span2)
+    div.appendChild(listaId)
 
     menu.appendChild(div);
 }
