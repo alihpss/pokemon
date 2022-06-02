@@ -27,11 +27,6 @@ const requisicaoPokemons = (inicioPersonagens,limitePersonagens) => {
                 const types = pokemon.types.map(typeInfo => typeInfo.type.name);
                 //console.log(pokemons[index]);
                 gerarNovoIcone( types[0],pokemon.id, pokemon.sprites.front_default, pokemon.name, types.join(' | '));
-
-                meuTeste(pokemon)
-                //console.log(meuTeste(pokemon));
-                //console.log(pokemon.nome);
-               //console.log(teste);
             };
 
             let divPokemons = document.querySelectorAll('.pokemons');
@@ -39,8 +34,9 @@ const requisicaoPokemons = (inicioPersonagens,limitePersonagens) => {
             divPokemons.forEach(divizinha => {
                 divizinha.addEventListener('click', () => {
                     let idPokemon = Number(divizinha.querySelector('.id').textContent) -1;
-                    console.log(idPokemon);
-                    console.log(meuTeste(pokemons[idPokemon]));
+                    console.log(pokemons[idPokemon]);
+                    //console.log(meuTeste(pokemons[idPokemon]));
+                    definirModal(meuTeste(pokemons[idPokemon]))
                 })
             });
 
@@ -50,11 +46,14 @@ requisicaoPokemons(1,20);
 
 const meuTeste = (pok) => {
     let poo = {
+        id: pok.id,
         nome: pok.name,
         img: pok.sprites.other.home.front_default,
         stats: pok.stats,
         altura: pok.height,
-        peso: pok.weight
+        peso: pok.weight,
+        habilidade: pok.abilities[0].ability.name,
+        tipo: pok.types.map(typeInfo => typeInfo.type.name)
     }
 
     return poo

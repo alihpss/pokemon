@@ -199,7 +199,7 @@ ul, li {
     background: black;
     position: fixed;
     left: 0;
-    top: 7em;
+    top: 5rem;
     right: 0;
     bottom: 0;
     margin: auto;
@@ -306,7 +306,8 @@ h4 {
 }
 
 .item span {
-    margin-right: 0.8rem;
+    width: 7%;
+    margin-right: 2rem;
 }
 
 .bar-status {
