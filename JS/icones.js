@@ -37,12 +37,15 @@ const definirModal = (pokemon) => {
     let infoAltura = document.querySelector('#info-height');
     let infoPeso = document.querySelector('#info-weight');
     let infoHabilidade = document.querySelector('#info-abilities')
-    let barraHp = document.querySelector('#bar-hp');
-    let barraAtaque = document.querySelector('#bar-ataque');
-    let barraDefesa = document.querySelector('#bar-defesa');
-    let barraSpAtaque = document.querySelector('#bar-spAtaque');
-    let barraSpDefesa = document.querySelector('#bar-spDefesa');
-    let barraVelocidade = document.querySelector('#bar-velocidade');
+
+    let stats = [
+        document.querySelector('#bar-hp'),
+        document.querySelector('#bar-ataque'),
+        document.querySelector('#bar-defesa'),
+        document.querySelector('#bar-spAtaque'),
+        document.querySelector('#bar-spDefesa'),
+        document.querySelector('#bar-velocidade')
+    ]
 
 
     itemTipo.setAttribute('src', `/img/svg-${pokemon.tipo[0]}.svg`);
@@ -67,7 +70,10 @@ const definirModal = (pokemon) => {
     infoPeso.textContent = `${Number(pokemon.peso) / 10}kg`;
     infoHabilidade.textContent = pokemon.habilidade;
 
-    barraHp.style.width = `${pokemon.stats[0].base_stat}%`
+    for (let valor = 0; valor < stats.length; valor++) {
+        const statsAtual = stats[valor];
+        statsAtual.style.width = `${pokemon.stats[valor].base_stat}%`
+    }
 
 };
 

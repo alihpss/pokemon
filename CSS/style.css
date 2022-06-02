@@ -108,6 +108,25 @@ ul, li {
 #filtroPokemons {
     width: 20%;
     background: pink;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.botoes-filtro {
+    border: none; 
+    font-weight: bolder;
+    height: 2rem; 
+    margin-bottom: 1rem; 
+    width: 50%;
+    opacity: 0.4;
+}
+
+.botoes-filtro:hover{
+    opacity: 1;
+    cursor: pointer;
+    fill: #000000;
 }
 
 #lista-pokemons {
@@ -120,6 +139,7 @@ ul, li {
 }
 
 .pokemons {
+    position: relative;
     display: grid;
     justify-items: center;
     grid-gap: 7px;
@@ -130,6 +150,10 @@ ul, li {
     min-width: 60%;
     text-transform: capitalize;
     background: white;
+}
+
+.id {
+    display: none;
 }
 
 .pokemons span {
