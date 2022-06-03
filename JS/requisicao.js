@@ -12,7 +12,7 @@ const requisicaoPokemons = (inicioPersonagens,limitePersonagens) => {
 
     const pokemonPromises = [];
 
-    for (let i = inicioPersonagens; i <= limitePersonagens; i++) {
+    for (let i = 1; i <= 151; i++) {
         pokemonPromises.push(fetch(getUrl(i)).then(response => response.json()));
         
     }
@@ -22,19 +22,28 @@ const requisicaoPokemons = (inicioPersonagens,limitePersonagens) => {
 
             
             
-        for (let index = 0; index < pokemonPromises.length; index++) {
+        for (let index = inicioPersonagens; index < pokemonPromises.length; index++) {
             let pokemon = pokemons[index]
             const types = pokemon.types.map(typeInfo => typeInfo.type.name);
-            //console.log(pokemons[index]);
             gerarNovoIcone( types[0],pokemon.id, pokemon.sprites.front_default, pokemon.name, types.join(' | '));
         };
 
         let divPokemons = document.querySelectorAll('.pokemons');
+        
+        for (let nDiv = 0; nDiv < 151; nDiv++) {
+            let divAtual = divPokemons[nDiv];
+            console.log(divAtual); 
+            //colocar botao aqui
+            if (nDiv < limitePersonagens) {
+                divAtual.style.display = 'grid'
+            } else {
+                divAtual.style.display = 'none'
+            }
+        }
 
         divPokemons.forEach(divizinha => {
             divizinha.addEventListener('click', () => {
                 let idPokemon = Number(divizinha.querySelector('.id').textContent) -1;
-                //console.log(pokemons[idPokemon]);
 
                 modal.style.zIndex = 1;
                 modal.style.opacity = 1;
@@ -45,22 +54,29 @@ const requisicaoPokemons = (inicioPersonagens,limitePersonagens) => {
 
         filtros.forEach(filtro => {
             filtro.addEventListener('click', function() {
-                divPokemons.forEach (item => {
-                    if (item.classList[1] !== filtro.innerText){
-                        item.style.display = 'none'
-                    } else {
+                if (filtro.innerText == 'All' || filtro.innerText == 'all') {
+                    divPokemons.forEach (item => 
                         item.style.display = 'grid'
-                    }
-                })
-            })
+                    );
+                } else {
+                    divPokemons.forEach (item => {
+                        if (item.classList[1] !== String(filtro.innerText).toLocaleLowerCase()){
+                            item.style.display = 'none'
+                        } else {
+                            item.style.display = 'grid'
+                        };
+                    });
+                };
+            });
         });
-
     });
 };
 
 
-requisicaoPokemons(1,200);
-
+requisicaoPokemons(0,21);
+//window.addEventListener("click" , () => {
+    
+//})
 
 
 
@@ -85,15 +101,3 @@ fecharModal.addEventListener('click', () => {
         modal.style.zIndex = -1;
     }, 200);
 })
-
-
-
-
-
-
-//console.log(filtros[0].textContent);
-
-
-
-
-

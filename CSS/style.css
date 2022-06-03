@@ -128,6 +128,7 @@ ul, li {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    text-transform: capitalize;
 }
 
 .botoes-filtro:hover{
@@ -163,6 +164,7 @@ ul, li {
     background: white;
     cursor: pointer;
     user-select: none;
+    max-height: 16.6rem;
 }
 
 .svg-pokemon {
@@ -242,7 +244,7 @@ ul, li {
 #modal {
     display: flex;
     width: 70%;
-    max-height: 34rem;
+    max-height: 36rem;
     background: black;
     position: fixed;
     left: 0;
@@ -254,7 +256,7 @@ ul, li {
     z-index: -1;
     opacity: 0;
     transition: 0.8s;
-
+    text-transform: capitalize;
 }
 
 #close-modal {
