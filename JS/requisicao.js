@@ -1,11 +1,11 @@
-const botao = document.querySelector('#listarPokemon');
-
 let listaPokemons = document.querySelector('#lista-pokemons');
 
+let filtros = document.querySelectorAll(`.botoes-filtro`)
+
+const modal = document.querySelector('#modal')
+const fecharModal = document.querySelector('#close-modal')
+
 const elementos = ['Grass', 'Fire', 'Water', 'Bug', 'Normal', 'Poison', 'Electric', 'Ground', 'Fairy', 'Fighting', 'Psychic', 'Rock', 'Ghost', 'Ice', 'Dragon'];
-
-const res = document.querySelector('#res')
-
 
 const requisicaoPokemons = (inicioPersonagens,limitePersonagens) => {
     const getUrl = id => `https://pokeapi.co/api/v2/pokemon/${id}`;
@@ -18,31 +18,51 @@ const requisicaoPokemons = (inicioPersonagens,limitePersonagens) => {
     }
 
     Promise.all(pokemonPromises)
-        .then(pokemons => {
+    .then(pokemons => {
 
             
             
-            for (let index = 0; index < pokemonPromises.length; index++) {
-                let pokemon = pokemons[index]
-                const types = pokemon.types.map(typeInfo => typeInfo.type.name);
-                //console.log(pokemons[index]);
-                gerarNovoIcone( types[0],pokemon.id, pokemon.sprites.front_default, pokemon.name, types.join(' | '));
-            };
+        for (let index = 0; index < pokemonPromises.length; index++) {
+            let pokemon = pokemons[index]
+            const types = pokemon.types.map(typeInfo => typeInfo.type.name);
+            //console.log(pokemons[index]);
+            gerarNovoIcone( types[0],pokemon.id, pokemon.sprites.front_default, pokemon.name, types.join(' | '));
+        };
 
-            let divPokemons = document.querySelectorAll('.pokemons');
+        let divPokemons = document.querySelectorAll('.pokemons');
 
-            divPokemons.forEach(divizinha => {
-                divizinha.addEventListener('click', () => {
-                    let idPokemon = Number(divizinha.querySelector('.id').textContent) -1;
-                    console.log(pokemons[idPokemon]);
-                    //console.log(meuTeste(pokemons[idPokemon]));
-                    definirModal(meuTeste(pokemons[idPokemon]))
-                })
-            });
+        divPokemons.forEach(divizinha => {
+            divizinha.addEventListener('click', () => {
+                let idPokemon = Number(divizinha.querySelector('.id').textContent) -1;
+                //console.log(pokemons[idPokemon]);
 
+                modal.style.zIndex = 1;
+                modal.style.opacity = 1;
+                    
+                definirModal(meuTeste(pokemons[idPokemon]))
+            })
         });
+
+        filtros.forEach(filtro => {
+            filtro.addEventListener('click', function() {
+                divPokemons.forEach (item => {
+                    if (item.classList[1] !== filtro.innerText){
+                        item.style.display = 'none'
+                    } else {
+                        item.style.display = 'grid'
+                    }
+                })
+            })
+        });
+
+    });
 };
-requisicaoPokemons(1,20);
+
+
+requisicaoPokemons(1,200);
+
+
+
 
 const meuTeste = (pok) => {
     let poo = {
@@ -57,7 +77,21 @@ const meuTeste = (pok) => {
     }
 
     return poo
-}
+};
+
+fecharModal.addEventListener('click', () => {
+    modal.style.opacity = 0;
+    setTimeout(() => {
+        modal.style.zIndex = -1;
+    }, 200);
+})
+
+
+
+
+
+
+//console.log(filtros[0].textContent);
 
 
 

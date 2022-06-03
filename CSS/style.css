@@ -32,6 +32,7 @@ header img {
 
 nav {
     width: calc(100% - 162.42px);
+    z-index: 1;
 }
 
 .lista {
@@ -107,26 +108,36 @@ ul, li {
 
 #filtroPokemons {
     width: 20%;
-    background: pink;
+    background: white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    padding-top: 10%;
 }
 
 .botoes-filtro {
     border: none; 
+    background: none;
     font-weight: bolder;
     height: 2rem; 
     margin-bottom: 1rem; 
     width: 50%;
     opacity: 0.4;
+    filter: grayscale(80%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .botoes-filtro:hover{
     opacity: 1;
     cursor: pointer;
-    fill: #000000;
+    filter: grayscale(0%);
+}
+
+.svg-filtro {
+    margin: 0 1rem 0 0.2rem;
 }
 
 #lista-pokemons {
@@ -147,9 +158,17 @@ ul, li {
     margin: 20px 1vmax;
     border: 1px solid black;
     box-shadow: 0px 0px 10px -1px black;
-    min-width: 60%;
+    min-width: 65%;
     text-transform: capitalize;
     background: white;
+    cursor: pointer;
+    user-select: none;
+}
+
+.svg-pokemon {
+    position: absolute;
+    max-width: 10%;
+    right:10%;
 }
 
 .id {
@@ -161,6 +180,7 @@ ul, li {
 }
 
 .pokemons img {
+    width: 80%;
     padding-top: 8px;
 }
 .pokemons input {
@@ -168,25 +188,28 @@ ul, li {
 }
 
 .grass {
-    border: 2px solid #2db42d;
+    border: 3px solid #2db42d;
     color: #2db42d;
 }
 .fire {
-    border: 2px solid #ff3434;
+    border: 3px solid #ff3434;
     color: #ff3434;
 }
 .water {
-    border: 2px solid #398efb;
+    border: 3px solid #398efb;
     color: #398efb;
 }
 .bug {
-    background-color: greenyellow;
+    border: 3px solid greenyellow;
+    color: greenyellow;
 }
 .normal {
-    background-color: #d8bc76;
+    border: 3px solid #d8bc76;
+    color: #d8bc76;
 }
 .poison {
-    background-color: #6e2bb5;
+    border: 3px solid #6e2bb5;
+    color: #6e2bb5;
 }
 .electric {
     background-color: #d1ce00;
@@ -223,12 +246,15 @@ ul, li {
     background: black;
     position: fixed;
     left: 0;
-    top: 5rem;
+    top: 0;
     right: 0;
     bottom: 0;
     margin: auto;
     border-radius: 15px;
     z-index: -1;
+    opacity: 0;
+    transition: 0.8s;
+
 }
 
 #close-modal {
@@ -240,6 +266,7 @@ ul, li {
     color: black;
     background: none;
     border: none;
+    cursor: pointer;
 }
 
 .lado-esquerdo {
@@ -301,9 +328,9 @@ h2 {
     background: #fdfdfd;
     padding: 0 1.1rem;
     margin-right: 5px;
-    color: #1d5b91;
     font-weight: bolder;
     font-size: 1.1rem;
+    border: none;
 }
 
 #info {
@@ -340,7 +367,7 @@ h4 {
     max-width: 21rem;
     height: 3px;
     overflow: hidden;
-    background-color: #2db42d;
+    background-color: #f9f9f912;
 }
 
 .separador {

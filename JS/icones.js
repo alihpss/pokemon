@@ -4,20 +4,23 @@ const gerarNovoIcone = (tipo,id, atributoImg, nome, spanTipo) => {
     let strong = document.createElement('strong');
     let listaId = document.createElement('span');
     let span2 = document.createElement('span');
-    let menu = document.getElementById('lista-pokemons')
+    let menu = document.getElementById('lista-pokemons');
+    let svg = document.createElement('img')
 
-
+    svg.setAttribute('src', `/img/svg-${tipo}.svg`);
     img.setAttribute('src', atributoImg);
     strong.textContent = nome;
     span2.textContent = spanTipo;
     listaId.textContent = id;
 
+    svg.classList.add('svg-pokemon')
     strong.classList.add('span-name')
     div.classList.add('pokemons');
     div.classList.add(tipo);
     listaId.classList.add('id');
 
 
+    div.appendChild(svg)
     div.appendChild(img)
     div.appendChild(strong)
     div.appendChild(span2)
@@ -49,9 +52,17 @@ const definirModal = (pokemon) => {
 
 
     itemTipo.setAttribute('src', `/img/svg-${pokemon.tipo[0]}.svg`);
+    imgModal.setAttribute('src','');
     imgModal.setAttribute('src', pokemon.img);
     pokemonNome.textContent = pokemon.nome;
-    idPokemon.textContent = `#${pokemon.id}`;
+    if (pokemon.id < 10) {
+        idPokemon.textContent = `#00${pokemon.id}`;
+    } else if (pokemon.id < 100) {
+        idPokemon.textContent = `#0${pokemon.id}`;
+    } else {
+        idPokemon.textContent = `#${pokemon.id}`;
+    }
+
 
     listaTipoPokemon.innerHTML = '';
 
@@ -59,10 +70,11 @@ const definirModal = (pokemon) => {
 
         const tipo = pokemon.tipo[indice];
         let liNova = document.createElement('li');
+        liNova.classList.remove();
 
         liNova.classList.add('tag')
         liNova.textContent = tipo;
-
+        liNova.classList.add(pokemon.tipo[indice])
         listaTipoPokemon.appendChild(liNova);
     };
 
