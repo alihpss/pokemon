@@ -173,7 +173,7 @@ ul, li {
     right:10%;
 }
 
-.id {
+.id, .tipo-secundario {
     display: none;
 }
 

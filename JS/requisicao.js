@@ -1,6 +1,9 @@
 let listaPokemons = document.querySelector('#lista-pokemons');
 
-let filtros = document.querySelectorAll(`.botoes-filtro`)
+let filtros = document.querySelectorAll(`.botoes-filtro`);
+
+let limitePersonagens = 21;
+let inicioPersonagens = 0
 
 const modal = document.querySelector('#modal')
 const fecharModal = document.querySelector('#close-modal')
@@ -22,7 +25,7 @@ const requisicaoPokemons = (inicioPersonagens,limitePersonagens) => {
 
             
             
-        for (let index = inicioPersonagens; index < pokemonPromises.length; index++) {
+        for (let index = inicioPersonagens; index < limitePersonagens; index++) {
             let pokemon = pokemons[index]
             const types = pokemon.types.map(typeInfo => typeInfo.type.name);
             gerarNovoIcone( types[0],pokemon.id, pokemon.sprites.front_default, pokemon.name, types.join(' | '));
@@ -30,16 +33,14 @@ const requisicaoPokemons = (inicioPersonagens,limitePersonagens) => {
 
         let divPokemons = document.querySelectorAll('.pokemons');
         
-        for (let nDiv = 0; nDiv < 151; nDiv++) {
-            let divAtual = divPokemons[nDiv];
-            console.log(divAtual); 
-            //colocar botao aqui
-            if (nDiv < limitePersonagens) {
-                divAtual.style.display = 'grid'
-            } else {
-                divAtual.style.display = 'none'
-            }
-        }
+        //for (let nDiv = 0; nDiv < 151; nDiv++) {
+        //    let divAtual = divPokemons[nDiv];
+        //    if (nDiv < limitePersonagens) {
+        //        divAtual.style.display = 'grid'
+        //    } else {
+        //        divAtual.style.display = 'none'
+        //    }
+        //};
 
         divPokemons.forEach(divizinha => {
             divizinha.addEventListener('click', () => {
@@ -55,12 +56,13 @@ const requisicaoPokemons = (inicioPersonagens,limitePersonagens) => {
         filtros.forEach(filtro => {
             filtro.addEventListener('click', function() {
                 if (filtro.innerText == 'All' || filtro.innerText == 'all') {
+                    requisicaoPokemons(limitePersonagens, 151);
                     divPokemons.forEach (item => 
                         item.style.display = 'grid'
                     );
                 } else {
                     divPokemons.forEach (item => {
-                        if (item.classList[1] !== String(filtro.innerText).toLocaleLowerCase()){
+                        if (item.classList[1] !== String(filtro.innerText).toLowerCase()){
                             item.style.display = 'none'
                         } else {
                             item.style.display = 'grid'
@@ -73,10 +75,14 @@ const requisicaoPokemons = (inicioPersonagens,limitePersonagens) => {
 };
 
 
-requisicaoPokemons(0,21);
-//window.addEventListener("click" , () => {
-    
-//})
+requisicaoPokemons(inicioPersonagens,limitePersonagens);
+window.addEventListener("click" , () => {
+    inicioPersonagens += 21
+    limitePersonagens += 21
+
+    requisicaoPokemons(inicioPersonagens, limitePersonagens);
+    return;
+})
 
 
 
