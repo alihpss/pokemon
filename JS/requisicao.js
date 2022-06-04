@@ -10,7 +10,7 @@ const fecharModal = document.querySelector('#close-modal')
 
 const elementos = ['Grass', 'Fire', 'Water', 'Bug', 'Normal', 'Poison', 'Electric', 'Ground', 'Fairy', 'Fighting', 'Psychic', 'Rock', 'Ghost', 'Ice', 'Dragon'];
 
-const requisicaoPokemons = (inicioPersonagens,limitePersonagens) => {
+const requisicaoPokemons = (limitePersonagens) => {
     const getUrl = id => `https://pokeapi.co/api/v2/pokemon/${id}`;
 
     const pokemonPromises = [];
@@ -23,26 +23,16 @@ const requisicaoPokemons = (inicioPersonagens,limitePersonagens) => {
     Promise.all(pokemonPromises)
     .then(pokemons => {
 
-            
-            
-        for (let index = inicioPersonagens; index < limitePersonagens; index++) {
+        for (let index = 0; index < 151; index++) {
             let pokemon = pokemons[index]
             const types = pokemon.types.map(typeInfo => typeInfo.type.name);
             gerarNovoIcone( types[0],pokemon.id, pokemon.sprites.front_default, pokemon.name, types.join(' | '));
         };
 
         let divPokemons = document.querySelectorAll('.pokemons');
-        
-        //for (let nDiv = 0; nDiv < 151; nDiv++) {
-        //    let divAtual = divPokemons[nDiv];
-        //    if (nDiv < limitePersonagens) {
-        //        divAtual.style.display = 'grid'
-        //    } else {
-        //        divAtual.style.display = 'none'
-        //    }
-        //};
 
-        divPokemons.forEach(divizinha => {
+        for (let div = 0; div < 151; div++) {
+            const divizinha = divPokemons[div];
             divizinha.addEventListener('click', () => {
                 let idPokemon = Number(divizinha.querySelector('.id').textContent) -1;
 
@@ -51,37 +41,63 @@ const requisicaoPokemons = (inicioPersonagens,limitePersonagens) => {
                     
                 definirModal(meuTeste(pokemons[idPokemon]))
             })
-        });
+        }
+
+            divPokemons.forEach(divizinha => {
+                divizinha.addEventListener('click', () => {
+                    let idPokemon = Number(divizinha.querySelector('.id').textContent) -1;
+    
+                    modal.style.zIndex = 1;
+                    modal.style.opacity = 1;
+                        
+                    definirModal(meuTeste(pokemons[idPokemon]))
+                })
+            });
+ 
 
         filtros.forEach(filtro => {
             filtro.addEventListener('click', function() {
                 if (filtro.innerText == 'All' || filtro.innerText == 'all') {
-                    requisicaoPokemons(limitePersonagens, 151);
                     divPokemons.forEach (item => 
                         item.style.display = 'grid'
                     );
                 } else {
-                    divPokemons.forEach (item => {
-                        if (item.classList[1] !== String(filtro.innerText).toLowerCase()){
-                            item.style.display = 'none'
+                    for (let testet = 0; testet < 151; testet++) {
+                        const divs = divPokemons[testet];
+                        if (divs.classList[1] !== String(filtro.innerText).toLowerCase()){
+                            divs.style.display = 'none'
                         } else {
-                            item.style.display = 'grid'
+                            divs.style.display = 'grid'
                         };
-                    });
+                     }
                 };
             });
         });
+
+        for (const iterator in divPokemons) {
+            if (iterator >= limitePersonagens) {
+                divPokemons[iterator].style.display = 'none';
+            } else {
+                divPokemons[iterator].style.display = 'grid';
+            }
+        }
     });
 };
 
+const carregarPokemons = document.querySelector('#carregar')
 
-requisicaoPokemons(inicioPersonagens,limitePersonagens);
-window.addEventListener("click" , () => {
-    inicioPersonagens += 21
+requisicaoPokemons(limitePersonagens);
+carregarPokemons.addEventListener("click" , () => {
+    //inicioPersonagens += 21
     limitePersonagens += 21
+    if (limitePersonagens > 151 ) {
+        limitePersonagens = 151
+    } //else if (inicioPersonagens > 151) {
+        //inicioPersonagens = 151
+    //}
 
-    requisicaoPokemons(inicioPersonagens, limitePersonagens);
-    return;
+    requisicaoPokemons(limitePersonagens);
+    //return;
 })
 
 
