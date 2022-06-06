@@ -122,4 +122,22 @@ fecharModal.addEventListener('click', () => {
     setTimeout(() => {
         modal.style.zIndex = -1;
     }, 200);
-})
+});
+
+
+const pesquisaDePokemons = () => {
+    const buscarPokemon = document.querySelector('#buscarPokemon');
+    let spanNomePokemon = document.querySelectorAll('.span-name')
+
+    buscarPokemon.addEventListener('input', function () {
+        let pesquisa = new RegExp (this.value, 'i');
+        
+        if (this.value.length  <= 0) {
+            
+        } else {
+            console.log(spanNomePokemon.indexOf(pesquisa));
+        }
+
+    });
+}
+

@@ -214,31 +214,40 @@ ul, li {
     color: #6e2bb5;
 }
 .electric {
-    background-color: #d1ce00;
+    border: 3px solid #d1ce00;
+    color: #d1ce00;
 }
 .ground {
-    background-color: #555400;
+    border: 3px solid #555400;
+    color: #555400;
 }
 .fairy {
-    background-color: #ff5ecf;
+    border: 3px solid #ff5ecf;
+    color: #ff5ecf;
 }
 .fighting {
-   background-color: #af0000;
+   border: 3px solid #af0000;
+   color: #af0000;
 }
 .psychic {
-    background-color: #a13b82;
+    border: 3px solid #a13b82;
+    color: #a13b82;
 }
 .rock{
-    background-color: #b1a667;
+    border: 3px solid #b1a667;
+    color: #b1a667;
 }
 .ghost {
-    background-color: #424242;
+    border: 3px solid #424242;
+    color: #424242;
 }
 .ice {
-    background-color: #83c5c9;
+    border: 3px solid #83c5c9;
+    color: #83c5c9;
 }
 .dragon {
-    background-color: #1c4547;
+    border: 3px solid #1c4547;
+    color: #1c4547;
 }
 
 #modal {
