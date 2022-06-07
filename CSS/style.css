@@ -2,24 +2,26 @@
 
 * {
     box-sizing: border-box;
-
 }
 
 html {
     --bg-color: #e6e6e6f5;
+    --cor-principal:#7c7c83;
+    --cor-escura: #252525;
+    --cor-clara: #f7f7f7;
     font-family: 'Noto Sans', sans-serif;
 }
 
 body {
-    color: white;
     background-color: var(--bg-color);
     font-size: 1.1rem;
 }
 
 header {
-    background-color: black;
+    background-color: var(--cor-escura);
     display: flex;
     align-items: center;
+    font-size: 15px;
 }
 
 
@@ -32,6 +34,7 @@ header img {
 nav {
     width: calc(100% - 162.42px);
     z-index: 1;
+    color: var(--cor-clara);
 }
 
 .lista {
@@ -50,14 +53,14 @@ nav {
 }
 
 .menu-suspenso {
-    background: burlywood;
+    background: var(--cor-principal);
     position: absolute;
     width: 15vmax;
     height: 95px;
     display: none;
     margin: 20px 0;
     top: 60%;
-    padding: 5px;
+    padding: 10px;
     flex-direction: column;
     justify-content: center;
     border-radius: 10px;
@@ -76,20 +79,19 @@ nav {
 
 .menu-suspenso > li {
     text-decoration: none;
-    color: var(--color-text);
     background-repeat: no-repeat;
     background-position: 0px 100%, 100% 100%;
     background-size: 0% 6%;
     background-image: linear-gradient(
       rgb(155, 055, 255) 0%,
-      rgb(29, 206, 197) 50%
+      rgb(204, 41, 0) 50%
     );
     transition: background-size 0.5s ease-in-out 0.1s;
   }
   
 a, .menu-suspenso > li:hover {
     text-decoration: none;
-    background-size: 100% 6%;
+    background-size: 100% 7%;
   }
 
 a { 
@@ -107,7 +109,7 @@ ul, li {
 
 #filtroPokemons {
     width: 20%;
-    background: white;
+    background: var(--bg-color);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -126,8 +128,7 @@ ul, li {
 .botoes-filtro {
     border: none; 
     background: none;
-    font-weight: bolder;
-    height: 2rem; 
+    height: 2rem;
     margin-bottom: 1rem; 
     width: 50%;
     opacity: 0.4;
@@ -165,14 +166,18 @@ ul, li {
     border-radius: 18px;
     margin: 20px 1vmax;
     border: 1px solid black;
-    box-shadow: 0px 0px 10px -1px black;
+    box-shadow: 0px 0px 5px 1px #878788;
     min-width: 65%;
     text-transform: capitalize;
     background: white;
     cursor: pointer;
     user-select: none;
-    max-height: 16.6rem;
+    max-height: 18rem;
     font-weight: 500;
+}
+
+.pokemons:hover {
+    box-shadow: 0px 1px 8px 2px #7c7c83;
 }
 
 .svg-pokemon {
@@ -249,7 +254,7 @@ ul, li {
     border: 3px solid #424242;
     color: #424242;
 }
-.ice {
+.ice, .flying {
     border: 3px solid #83c5c9;
     color: #83c5c9;
 }
@@ -262,18 +267,18 @@ ul, li {
     display: flex;
     width: 70%;
     max-height: 36rem;
-    background: black;
     position: fixed;
     left: 0;
     top: 0;
     right: 0;
     bottom: 0;
     margin: auto;
-    border-radius: 15px;
+    border-radius: 20px;
     z-index: -1;
     opacity: 0;
-    transition: 0.8s;
+    transition: 1s;
     text-transform: capitalize;
+    box-shadow: 0px 1px 10px 4px var(--cor-principal);
 }
 
 #close-modal {
@@ -294,7 +299,6 @@ ul, li {
     align-items: flex-end;
     justify-content: flex-start;
     width: 30%;
-    background: #83c5c9;
     border-radius: 14px 0 0 14px;
 }
 
@@ -315,10 +319,20 @@ ul, li {
 }
 
 .lado-direito {
-    background: rgb(56, 56, 54);
+    background: var(--cor-clara);
     width: 70%;
+    font-size: 16px;
     border-radius: 0 14px 14px 0;
     padding: 2rem 1rem 2rem 2.2rem;
+}
+
+h3, h4 {
+    font-weight: 700;
+}
+
+#id-pokemon {
+    color: var(--cor-principal);
+    opacity: 0.6;
 }
 
 #div-name {
@@ -376,7 +390,7 @@ h4 {
 }
 
 .item span {
-    width: 7%;
+    width: 15%;
     margin-right: 2rem;
 }
 
@@ -384,9 +398,8 @@ h4 {
     position: relative;
     width: 100%;
     max-width: 21rem;
-    height: 3px;
     overflow: hidden;
-    background-color: #f9f9f912;
+    background-color: #d8d7d7;
 }
 
 .separador {
@@ -406,7 +419,7 @@ h4 {
 
 .bar {
     width: 100%;
-    height: 100%;
+    height: 1rem;
     background: red;
 }
 

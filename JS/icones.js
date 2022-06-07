@@ -35,6 +35,8 @@ const definirModal = (pokemon) => {
     let pokemonNome = document.querySelector('#nome-pokemon');
     let idPokemon = document.querySelector('#id-pokemon');
 
+    let ladoEsquerdo = document.querySelector('.lado-esquerdo')
+
     let listaTipoPokemon = document.querySelector('#tipo');
 
     let infoAltura = document.querySelector('#info-height');
@@ -51,6 +53,8 @@ const definirModal = (pokemon) => {
     ]
 
 
+    ladoEsquerdo.style.background = `url(/img/bg-${pokemon.tipo[0]}.svg)`;
+    ladoEsquerdo.style.backgroundSize = `cover`;
     itemTipo.setAttribute('src', `/img/svg-${pokemon.tipo[0]}.svg`);
     imgModal.setAttribute('src','');
     imgModal.setAttribute('src', pokemon.img);

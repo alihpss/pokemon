@@ -9,6 +9,8 @@ const fecharModal = document.querySelector('#close-modal');
 
 const elementos = ['Grass', 'Fire', 'Water', 'Bug', 'Normal', 'Poison', 'Electric', 'Ground', 'Fairy', 'Fighting', 'Psychic', 'Rock', 'Ghost', 'Ice', 'Dragon'];
 
+const carregarPokemons = document.querySelector('#carregar')
+
 const requisicaoPokemons = (limitePersonagens) => {
     const getUrl = id => `https://pokeapi.co/api/v2/pokemon/${id}`;
 
@@ -32,21 +34,36 @@ const requisicaoPokemons = (limitePersonagens) => {
 
         pesquisaDePokemons(divPokemons);
 
-        for (let div = 0; div < 151; div++) {
-            const caixaPokemon = divPokemons[div];
-            caixaPokemon.addEventListener('click', () => {
-                let idPokemon = Number(caixaPokemon.querySelector('.id').textContent) -1;
+            divPokemons.forEach(caixaPokemon => {
+                caixaPokemon.addEventListener('click', () => {
+                    let idPokemon = Number(caixaPokemon.querySelector('.id').textContent) -1;
 
-                modal.style.zIndex = 1;
-                modal.style.opacity = 1;
+                    let nomeDaClasse = caixaPokemon.classList[1];
+
+                    let requisicaoFraquezas = new XMLHttpRequest()
+                    requisicaoFraquezas.open ('GET',`https://pokeapi.co/api/v2/type/${nomeDaClasse}/ `);
+                    requisicaoFraquezas.send(); 
                     
-                definirModal(gerarObjetoPokemon(pokemons[idPokemon]))
-            })
-        }
-
-            divPokemons.forEach(divizinha => {
-                divizinha.addEventListener('click', () => {
-                    let idPokemon = Number(divizinha.querySelector('.id').textContent) -1;
+                    requisicaoFraquezas.addEventListener('load', () => {
+                        let resposta = JSON.parse(requisicaoFraquezas.responseText);
+                        let fraquezas = document.querySelector('#fraquezas');
+                        let relacoesDeDano = resposta.damage_relations.double_damage_from;
+    
+                        fraquezas.innerHTML = '';
+                        for (let elementos = 0; elementos < relacoesDeDano.length; elementos++) {
+                            const elementoAtual = relacoesDeDano[elementos];
+                            let nomeElemento = elementoAtual.name;
+                            console.log(nomeElemento);
+    
+                            let itemFraquezas = document.createElement('li');
+                            itemFraquezas.textContent = nomeElemento; 
+                            itemFraquezas.classList.add(`tag`);
+                            itemFraquezas.classList.add(`${nomeElemento}`);
+    
+                            fraquezas.appendChild(itemFraquezas);
+                        };
+    
+                    });
     
                     modal.style.zIndex = 1;
                     modal.style.opacity = 1;
@@ -62,10 +79,12 @@ const requisicaoPokemons = (limitePersonagens) => {
             filtro.style.border ='none';
 
             filtro.addEventListener('click', function() {
+                carregarPokemons.style.zIndex = '0'
+                carregarPokemons.style.opacity = '0'
                 if (filtro.innerText == 'All' || filtro.innerText == 'all') {
                     divPokemons.forEach (item => 
                         item.style.display = 'grid'
-                    );
+                    )
                 } else {
                     for (let indiceParaDivs = 0; indiceParaDivs < 151; indiceParaDivs++) {
                         const divs = divPokemons[indiceParaDivs];
@@ -89,7 +108,7 @@ const requisicaoPokemons = (limitePersonagens) => {
     });
 };
 
-const carregarPokemons = document.querySelector('#carregar')
+
 
 requisicaoPokemons(limitePersonagens);
 carregarPokemons.addEventListener("click" , () => {
