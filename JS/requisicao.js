@@ -1,12 +1,11 @@
-let listaPokemons = document.querySelector('#lista-pokemons');
-
+const listaPokemons = document.querySelector('#lista-pokemons');
 let filtros = document.querySelectorAll(`.botoes-filtro`);
 
 let limitePersonagens = 21;
-let inicioPersonagens = 0
+let inicioPersonagens = 0;
 
-const modal = document.querySelector('#modal')
-const fecharModal = document.querySelector('#close-modal')
+const modal = document.querySelector('#modal');
+const fecharModal = document.querySelector('#close-modal');
 
 const elementos = ['Grass', 'Fire', 'Water', 'Bug', 'Normal', 'Poison', 'Electric', 'Ground', 'Fairy', 'Fighting', 'Psychic', 'Rock', 'Ghost', 'Ice', 'Dragon'];
 
@@ -31,15 +30,17 @@ const requisicaoPokemons = (limitePersonagens) => {
 
         let divPokemons = document.querySelectorAll('.pokemons');
 
+        pesquisaDePokemons(divPokemons);
+
         for (let div = 0; div < 151; div++) {
-            const divizinha = divPokemons[div];
-            divizinha.addEventListener('click', () => {
-                let idPokemon = Number(divizinha.querySelector('.id').textContent) -1;
+            const caixaPokemon = divPokemons[div];
+            caixaPokemon.addEventListener('click', () => {
+                let idPokemon = Number(caixaPokemon.querySelector('.id').textContent) -1;
 
                 modal.style.zIndex = 1;
                 modal.style.opacity = 1;
                     
-                definirModal(meuTeste(pokemons[idPokemon]))
+                definirModal(gerarObjetoPokemon(pokemons[idPokemon]))
             })
         }
 
@@ -50,20 +51,24 @@ const requisicaoPokemons = (limitePersonagens) => {
                     modal.style.zIndex = 1;
                     modal.style.opacity = 1;
                         
-                    definirModal(meuTeste(pokemons[idPokemon]))
+                    definirModal(gerarObjetoPokemon(pokemons[idPokemon]))
                 })
             });
  
 
         filtros.forEach(filtro => {
+
+            filtro.classList.add(filtro.innerText.toLowerCase())
+            filtro.style.border ='none';
+
             filtro.addEventListener('click', function() {
                 if (filtro.innerText == 'All' || filtro.innerText == 'all') {
                     divPokemons.forEach (item => 
                         item.style.display = 'grid'
                     );
                 } else {
-                    for (let testet = 0; testet < 151; testet++) {
-                        const divs = divPokemons[testet];
+                    for (let indiceParaDivs = 0; indiceParaDivs < 151; indiceParaDivs++) {
+                        const divs = divPokemons[indiceParaDivs];
                         if (divs.classList[1] !== String(filtro.innerText).toLowerCase()){
                             divs.style.display = 'none'
                         } else {
@@ -88,21 +93,18 @@ const carregarPokemons = document.querySelector('#carregar')
 
 requisicaoPokemons(limitePersonagens);
 carregarPokemons.addEventListener("click" , () => {
-    //inicioPersonagens += 21
     limitePersonagens += 21
     if (limitePersonagens > 151 ) {
         limitePersonagens = 151
-    } //else if (inicioPersonagens > 151) {
-        //inicioPersonagens = 151
-    //}
+    }
 
     requisicaoPokemons(limitePersonagens);
-    //return;
+
 })
 
 
 
-const meuTeste = (pok) => {
+const gerarObjetoPokemon = (pok) => {
     let poo = {
         id: pok.id,
         nome: pok.name,
@@ -125,19 +127,28 @@ fecharModal.addEventListener('click', () => {
 });
 
 
-const pesquisaDePokemons = () => {
+const pesquisaDePokemons = (divs) => {
     const buscarPokemon = document.querySelector('#buscarPokemon');
-    let spanNomePokemon = document.querySelectorAll('.span-name')
-
     buscarPokemon.addEventListener('input', function () {
-        let pesquisa = new RegExp (this.value, 'i');
-        
-        if (this.value.length  <= 0) {
-            
-        } else {
-            console.log(spanNomePokemon.indexOf(pesquisa));
+
+
+    for (let index = 0; index < divs.length; index++) {
+        const div = divs[index];
+        let spanNomePokemon = div.querySelector('.span-name').textContent
+
+
+            let pesquisa = new RegExp (this.value, 'i');
+
+            if (this.value.length  > 0) {
+                if (pesquisa.test(spanNomePokemon)) {
+                    div.style.display = 'grid'
+                } else {
+                    div.style.display = 'none'
+                }
+            } else {
+                div.style.display = 'grid'
+            };
         }
+    })
 
-    });
-}
-
+};
