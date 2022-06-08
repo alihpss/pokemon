@@ -93,3 +93,31 @@ const definirModal = (pokemon) => {
 
 };
 
+const fraquezaPokemon = (caixaPokemon) => {
+    let nomeDaClasse = caixaPokemon.classList[1];
+
+    let requisicaoFraquezas = new XMLHttpRequest()
+    requisicaoFraquezas.open ('GET',`https://pokeapi.co/api/v2/type/${nomeDaClasse}/ `);
+    requisicaoFraquezas.send(); 
+    
+    requisicaoFraquezas.addEventListener('load', () => {
+        let resposta = JSON.parse(requisicaoFraquezas.responseText);
+        let fraquezas = document.querySelector('#fraquezas');
+        let relacoesDeDano = resposta.damage_relations.double_damage_from;
+
+        fraquezas.innerHTML = '';
+        for (let elementos = 0; elementos < relacoesDeDano.length; elementos++) {
+            const elementoAtual = relacoesDeDano[elementos];
+            let nomeElemento = elementoAtual.name;
+
+            let itemFraquezas = document.createElement('li');
+            itemFraquezas.textContent = nomeElemento; 
+            itemFraquezas.classList.add(`tag`);
+            itemFraquezas.classList.add(`${nomeElemento}`);
+
+            fraquezas.appendChild(itemFraquezas);
+        };
+
+    });
+}
+
