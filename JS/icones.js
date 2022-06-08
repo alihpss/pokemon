@@ -1,8 +1,9 @@
-const gerarNovoIcone = (tipo,id, atributoImg, nome, spanTipo) => {
+const gerarNovoIcone = (tipo, tipoSecundario, id, atributoImg, nome, spanTipo) => {
     let div = document.createElement('div');
     let img = document.createElement('img')
     let strong = document.createElement('strong');
     let listaId = document.createElement('span');
+    let tipo2 = document.createElement('span');
     let span2 = document.createElement('span');
     let menu = document.getElementById('lista-pokemons');
     let svg = document.createElement('img')
@@ -12,18 +13,21 @@ const gerarNovoIcone = (tipo,id, atributoImg, nome, spanTipo) => {
     strong.textContent = nome;
     span2.textContent = spanTipo;
     listaId.textContent = id;
+    tipo2.textContent = tipoSecundario;
 
     svg.classList.add('svg-pokemon')
     strong.classList.add('span-name')
     div.classList.add('pokemons');
     div.classList.add(tipo);
     listaId.classList.add('id');
+    tipo2.classList.add('tipo-secundario');
 
 
     div.appendChild(svg)
     div.appendChild(img)
     div.appendChild(strong)
     div.appendChild(span2)
+    div.appendChild(tipo2)
     div.appendChild(listaId)
 
     menu.appendChild(div);
@@ -119,5 +123,7 @@ const fraquezaPokemon = (caixaPokemon) => {
         };
 
     });
-}
+};
+
+
 

@@ -27,7 +27,7 @@ const requisicaoPokemons = (limitePersonagens) => {
         for (let index = 0; index < 151; index++) {
             let pokemon = pokemons[index]
             const types = pokemon.types.map(typeInfo => typeInfo.type.name);
-            gerarNovoIcone( types[0],pokemon.id, pokemon.sprites.front_default, pokemon.name, types.join(' | '));
+            gerarNovoIcone( types[0], types[1],pokemon.id, pokemon.sprites.front_default, pokemon.name, types.join(' | '));
         };
 
         let divPokemons = document.querySelectorAll('.pokemons');
@@ -53,34 +53,47 @@ const requisicaoPokemons = (limitePersonagens) => {
             filtro.style.border ='none';
 
             filtro.addEventListener('click', function() {
-                
-                let filtroAtivo = document.querySelector('.ativo');
 
-                carregarPokemons.style.zIndex = '0'
-                carregarPokemons.style.opacity = '0'
+
+                let filtroAtivo = document.querySelectorAll('.ativo');
+
+                if (filtroAtivo.length > 0) {
+                    filtroAtivo[0].classList.remove('ativo');
+                };
+
+                filtro.classList.add('ativo');
+
+                divPokemons.forEach(pokemonDiv => {
+                    pokemonDiv.style.display = 'none'
+                });
+
 
                 if (filtro.innerText == 'All' || filtro.innerText == 'all') {
 
+                    carregarPokemons.style.zIndex = '1'
+                    carregarPokemons.style.opacity = '1'
+
+                    
                     filtro.classList.add('ativo');
-                    for (let index = 0; index < 151; index++) {
+                    for (let index = 0; index < 21; index++) {
                         const todosPokemons = divPokemons[index];
                         todosPokemons.style.display = 'grid'
                     }
                 } else {
-
-                    filtro.classList.add('ativo');
+                    carregarPokemons.style.zIndex = '0'
+                    carregarPokemons.style.opacity = '0'
 
                     for (let indiceParaDivs = 0; indiceParaDivs < 151; indiceParaDivs++) {
                         const divs = divPokemons[indiceParaDivs];
-                        if (divs.classList[1] !== String(filtro.innerText).toLowerCase()){
-                            divs.style.display = 'none'
-                        } else {
+                        let tipo2 = divs.querySelector('.tipo-secundario')
+
+                        if (divs.classList[1] == String(filtro.innerText).toLowerCase() || tipo2.textContent == String(filtro.innerText).toLowerCase()){
                             divs.style.display = 'grid'
+                        } else {
+                            divs.style.display = 'none'
                         };
                     }
                 };
-
-                filtroAtivo.classList.remove('ativo');
             });
         });
 
@@ -101,6 +114,8 @@ carregarPokemons.addEventListener("click" , () => {
     limitePersonagens += 21
     if (limitePersonagens > 151 ) {
         limitePersonagens = 151
+        carregarPokemons.style.zIndex = '0'
+        carregarPokemons.style.opacity = '0'
     }
 
     requisicaoPokemons(limitePersonagens);
@@ -137,15 +152,15 @@ const pesquisaDePokemons = (divs) => {
     buscarPokemon.addEventListener('input', function () {
 
 
-    for (let index = 0; index < divs.length; index++) {
+    for (let index = 0; index < 151; index++) {
         const div = divs[index];
         let spanNomePokemon = div.querySelector('.span-name').textContent
-
+        let spanIdPokemon = div.querySelector('.id').textContent
 
             let pesquisa = new RegExp (this.value, 'i');
 
             if (this.value.length  > 0) {
-                if (pesquisa.test(spanNomePokemon)) {
+                if (pesquisa.test(spanNomePokemon) || pesquisa.test(spanIdPokemon)) {
                     div.style.display = 'grid'
                 } else {
                     div.style.display = 'none'
@@ -157,3 +172,9 @@ const pesquisaDePokemons = (divs) => {
     })
 
 };
+
+//window.addEventListener('load', () => {
+//    let posicoesFiltro = document.querySelector('#filtroPokemons');
+//    posicoesFiltro.style.maxHeight = `calc(${window.screen.height}px - 90px)`
+//    console.log(window.screen.height);
+//})

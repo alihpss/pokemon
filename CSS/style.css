@@ -105,6 +105,7 @@ ul, li {
 .conteudo {
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 
 #filtroPokemons {
@@ -114,22 +115,25 @@ ul, li {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 1% 0 0 1.5rem;
+    padding-left:  1.5rem;
     border-right: 1px solid rgb(160, 160, 160);
-    border-bottom: 1px solid rgb(160, 160, 160);
+    height: 40vmax;
+    position: sticky;
+    top: 0rem;
+    overflow-y: scroll;
 }
 
 #buscarPokemon {
     width: 80%;
     padding: 10px;
-    margin-bottom: 2rem;
+    margin: 2rem 0;
 }
 
 .botoes-filtro {
     border: none; 
     background: none;
     height: 2rem;
-    margin-bottom: 1rem; 
+    margin-bottom: 2rem; 
     width: 50%;
     opacity: 0.4;
     filter: brightness(0);
@@ -270,8 +274,8 @@ ul, li {
 
 #modal {
     display: flex;
-    width: 70%;
-    max-height: 36rem;
+    width: 60%;
+    max-height: 40rem;
     position: fixed;
     left: 0;
     top: 0;
@@ -313,7 +317,7 @@ ul, li {
     background: ghostwhite;
     padding: 4px;
     border-radius: 20px;
-    margin: 3rem 2rem 0 0;
+    margin: 2rem 2rem 0 0;
 }
 
 #img-modal {
@@ -328,7 +332,7 @@ ul, li {
     width: 70%;
     font-size: 16px;
     border-radius: 0 14px 14px 0;
-    padding: 2rem 1rem 2rem 2.2rem;
+    padding: 1.5rem 1rem 2rem 2.2rem;
 }
 
 h3, h4 {
@@ -344,11 +348,12 @@ h3, h4 {
     display: flex;
     align-items: baseline;
     margin-bottom: 1rem;
+    flex-wrap: wrap;
 }
 
 #tipo, #info {
     display: flex;
-    margin-bottom: 2.3rem;
+    margin-bottom: 1.3rem;
 }
 
 h2 {
@@ -360,12 +365,13 @@ h2 {
 #fraquezas {
     display: flex;
     margin-bottom: 1rem;
+    flex-wrap: wrap;
 }
 
 .tag {
     background: #fdfdfd;
     padding: 0 1.1rem;
-    margin-right: 5px;
+    margin: 5px 2px;
     font-weight: bolder;
     font-size: 1.1rem;
     border: none;
@@ -395,8 +401,20 @@ h4 {
 }
 
 .item span {
-    width: 15%;
+    width: 3rem;
     margin-right: 2rem;
+}
+
+@media (max-width: 1112px)  {
+    #hp {
+        margin-right: 2.8rem;
+    }
+}
+
+@media (max-width: 690px)  {
+    #hp {
+        margin-right: 3rem;
+    }
 }
 
 .bar-status {
@@ -434,6 +452,7 @@ h4 {
     margin: auto;
     right: 0;
     left: 0;
+    bottom: 0;
     height: 2.5rem;
     margin-left: 52%;
     width: 20%;
