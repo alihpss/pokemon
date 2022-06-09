@@ -104,8 +104,8 @@ const fraquezaPokemon = (caixaPokemon) => {
     requisicaoFraquezas.open ('GET',`https://pokeapi.co/api/v2/type/${nomeDaClasse}/ `);
     requisicaoFraquezas.send(); 
     
-    requisicaoFraquezas.addEventListener('load', () => {
-        let resposta = JSON.parse(requisicaoFraquezas.responseText);
+    requisicaoFraquezas.addEventListener('load', function() {
+        let resposta = JSON.parse(this.responseText);
         let fraquezas = document.querySelector('#fraquezas');
         let relacoesDeDano = resposta.damage_relations.double_damage_from;
 

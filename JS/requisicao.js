@@ -172,9 +172,3 @@ const pesquisaDePokemons = (divs) => {
     })
 
 };
-
-//window.addEventListener('load', () => {
-//    let posicoesFiltro = document.querySelector('#filtroPokemons');
-//    posicoesFiltro.style.maxHeight = `calc(${window.screen.height}px - 90px)`
-//    console.log(window.screen.height);
-//})

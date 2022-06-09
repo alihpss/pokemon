@@ -104,7 +104,6 @@ ul, li {
 
 .conteudo {
     display: flex;
-    justify-content: space-between;
     position: relative;
 }
 
@@ -117,10 +116,23 @@ ul, li {
     align-items: flex-start;
     padding-left:  1.5rem;
     border-right: 1px solid rgb(160, 160, 160);
-    height: 40vmax;
+    max-height: 100vh;
     position: sticky;
-    top: 0rem;
+    top: 0;
     overflow-y: scroll;
+}
+
+
+#filtroPokemons::-webkit-scrollbar{
+    width: 1px;
+}
+
+#filtroPokemons::-webkit-scrollbar-thumb{
+    background: red ;
+}
+
+#filtroPokemons::-webkit-scrollbar-thumb:hover{
+    background: #e96666 ;
 }
 
 #buscarPokemon {
@@ -138,6 +150,7 @@ ul, li {
     opacity: 0.4;
     filter: brightness(0);
     display: flex;
+    height: 20%;
     align-items: center;
     justify-content: flex-start;
     text-transform: capitalize;
@@ -161,10 +174,10 @@ ul, li {
 #lista-pokemons {
     background-color: inherit;
     width: 70%;
-    margin: 50px 0;
+    margin: 50px 0 150px 6%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    justify-items: start;
+    justify-items: center;
 }
 
 .pokemons {
@@ -176,7 +189,7 @@ ul, li {
     margin: 20px 1vmax;
     border: 1px solid black;
     box-shadow: 0px 0px 5px 1px #878788;
-    min-width: 65%;
+    width: 70%;
     text-transform: capitalize;
     background: white;
     cursor: pointer;
@@ -275,7 +288,7 @@ ul, li {
 #modal {
     display: flex;
     width: 60%;
-    max-height: 40rem;
+    max-height: 38rem;
     position: fixed;
     left: 0;
     top: 0;
@@ -448,13 +461,24 @@ h4 {
 
 #carregar {
     position: absolute;
-    border: 1px solid black;
+    border: 1px solid var(--cor-escura);
+    color: var(--cor-escura);
+    background: var(--cor-clara);
     margin: auto;
     right: 0;
     left: 0;
     bottom: 0;
-    height: 2.5rem;
-    margin-left: 52%;
+    height: 3rem;
+    margin: 50px 52%;
     width: 20%;
+    padding: 7px;
+    font-weight: 700;
+}
+
+#carregar:hover {
+    color: var(--cor-clara);
+    background: var(--cor-escura);
+    cursor: pointer;
+    box-shadow: 2px 0px 1px 1px var(--cor-escura);
 }
 
