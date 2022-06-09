@@ -43,6 +43,7 @@ const requisicaoPokemons = (limitePersonagens) => {
                     modal.style.opacity = 1;
                         
                     definirModal(gerarObjetoPokemon(pokemons[idPokemon]))
+                    adicionarAosFavoritos();
                 })
             });
  
@@ -104,6 +105,8 @@ const requisicaoPokemons = (limitePersonagens) => {
                 divPokemons[iterator].style.display = 'grid';
             }
         }
+
+
     });
 };
 
@@ -172,3 +175,22 @@ const pesquisaDePokemons = (divs) => {
     })
 
 };
+
+//function adicionarAosFavoritos () {
+//    const imgFavoritos = document.querySelector('.icone-favoritos');
+//    imgFavoritos.checked = 'false'
+//
+//    imgFavoritos.addEventListener('click', () => {
+//        imgFavoritos.classList.add('favorito');
+//        console.log(imgFavoritos);
+//        let favoritos = document.querySelectorAll('.favorito')
+//        favoritos.forEach(elemento=> {
+//            //elemento.setAttribute('src', '/img/svg-favorites.svg')
+//        })
+//        
+//    })
+//
+//    imgFavoritos.checked = 'false'
+//}
+
+

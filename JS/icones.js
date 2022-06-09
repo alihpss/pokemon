@@ -1,34 +1,41 @@
 const gerarNovoIcone = (tipo, tipoSecundario, id, atributoImg, nome, spanTipo) => {
-    let div = document.createElement('div');
-    let img = document.createElement('img')
-    let strong = document.createElement('strong');
-    let listaId = document.createElement('span');
-    let tipo2 = document.createElement('span');
-    let span2 = document.createElement('span');
-    let menu = document.getElementById('lista-pokemons');
-    let svg = document.createElement('img')
+    const div = document.createElement('div');
+    const img = document.createElement('img')
+    const strong = document.createElement('strong');
+    const listaId = document.createElement('span');
+    const tipo2 = document.createElement('span');
+    const span2 = document.createElement('span');
+    const menu = document.getElementById('lista-pokemons');
+    const svgTipo = document.createElement('img');
 
-    svg.setAttribute('src', `/img/svg-${tipo}.svg`);
+
+
+    svgTipo.setAttribute('src', `/img/svg-${tipo}.svg`);
     img.setAttribute('src', atributoImg);
+
+
+
     strong.textContent = nome;
     span2.textContent = spanTipo;
     listaId.textContent = id;
     tipo2.textContent = tipoSecundario;
 
-    svg.classList.add('svg-pokemon')
-    strong.classList.add('span-name')
+    svgTipo.classList.add('svg-pokemon');
+
+    strong.classList.add('span-name');
     div.classList.add('pokemons');
     div.classList.add(tipo);
     listaId.classList.add('id');
     tipo2.classList.add('tipo-secundario');
 
 
-    div.appendChild(svg)
-    div.appendChild(img)
-    div.appendChild(strong)
-    div.appendChild(span2)
-    div.appendChild(tipo2)
-    div.appendChild(listaId)
+    div.appendChild(svgTipo);
+
+    div.appendChild(img);
+    div.appendChild(strong);
+    div.appendChild(span2);
+    div.appendChild(tipo2);
+    div.appendChild(listaId);
 
     menu.appendChild(div);
 };
@@ -39,7 +46,10 @@ const definirModal = (pokemon) => {
     let pokemonNome = document.querySelector('#nome-pokemon');
     let idPokemon = document.querySelector('#id-pokemon');
 
-    let ladoEsquerdo = document.querySelector('.lado-esquerdo')
+    const svgFavoritos = document.createElement('input');
+    const labelFavoritos = document.createElement('label');
+
+    let ladoEsquerdo = document.querySelector('.lado-esquerdo');
 
     let listaTipoPokemon = document.querySelector('#tipo');
 
@@ -54,8 +64,15 @@ const definirModal = (pokemon) => {
         document.querySelector('#bar-spAtaque'),
         document.querySelector('#bar-spDefesa'),
         document.querySelector('#bar-velocidade')
-    ]
+    ];
+    console.log(pokemon.nome);
+    svgFavoritos.setAttribute('type', 'checkbox');
+    svgFavoritos.setAttribute('name', pokemon.nome);
 
+    labelFavoritos.setAttribute('for', pokemon.nome);
+
+    labelFavoritos.classList.add('label-favoritos');
+    svgFavoritos.classList.add('icone-favoritos');
 
     ladoEsquerdo.style.background = `url(/img/bg-${pokemon.tipo[0]}.svg)`;
     ladoEsquerdo.style.backgroundSize = `cover`;
@@ -93,7 +110,9 @@ const definirModal = (pokemon) => {
     for (let valor = 0; valor < stats.length; valor++) {
         const statsAtual = stats[valor];
         statsAtual.style.width = `${pokemon.stats[valor].base_stat}%`
-    }
+    };
+    
+    ladoEsquerdo.appendChild(svgFavoritos);
 
 };
 
