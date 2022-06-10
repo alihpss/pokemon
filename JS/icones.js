@@ -46,9 +46,6 @@ const definirModal = (pokemon) => {
     let pokemonNome = document.querySelector('#nome-pokemon');
     let idPokemon = document.querySelector('#id-pokemon');
 
-    const svgFavoritos = document.createElement('input');
-    const labelFavoritos = document.createElement('label');
-
     let ladoEsquerdo = document.querySelector('.lado-esquerdo');
 
     let listaTipoPokemon = document.querySelector('#tipo');
@@ -65,14 +62,6 @@ const definirModal = (pokemon) => {
         document.querySelector('#bar-spDefesa'),
         document.querySelector('#bar-velocidade')
     ];
-    console.log(pokemon.nome);
-    svgFavoritos.setAttribute('type', 'checkbox');
-    svgFavoritos.setAttribute('name', pokemon.nome);
-
-    labelFavoritos.setAttribute('for', pokemon.nome);
-
-    labelFavoritos.classList.add('label-favoritos');
-    svgFavoritos.classList.add('icone-favoritos');
 
     ladoEsquerdo.style.background = `url(/img/bg-${pokemon.tipo[0]}.svg)`;
     ladoEsquerdo.style.backgroundSize = `cover`;
@@ -111,8 +100,6 @@ const definirModal = (pokemon) => {
         const statsAtual = stats[valor];
         statsAtual.style.width = `${pokemon.stats[valor].base_stat}%`
     };
-    
-    ladoEsquerdo.appendChild(svgFavoritos);
 
 };
 

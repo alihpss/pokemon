@@ -43,7 +43,6 @@ const requisicaoPokemons = (limitePersonagens) => {
                     modal.style.opacity = 1;
                         
                     definirModal(gerarObjetoPokemon(pokemons[idPokemon]))
-                    adicionarAosFavoritos();
                 })
             });
  
@@ -163,6 +162,8 @@ const pesquisaDePokemons = (divs) => {
             let pesquisa = new RegExp (this.value, 'i');
 
             if (this.value.length  > 0) {
+                carregarPokemons.style.opacity = 0;
+                carregarPokemons.style.zIndex = -1;
                 if (pesquisa.test(spanNomePokemon) || pesquisa.test(spanIdPokemon)) {
                     div.style.display = 'grid'
                 } else {
@@ -170,27 +171,35 @@ const pesquisaDePokemons = (divs) => {
                 }
             } else {
                 div.style.display = 'grid'
+                carregarPokemons.style.opacity = 1;
+                carregarPokemons.style.zIndex = 1;
             };
         }
     })
-
 };
 
-//function adicionarAosFavoritos () {
-//    const imgFavoritos = document.querySelector('.icone-favoritos');
-//    imgFavoritos.checked = 'false'
+//function adicionarAosFavoritos (nome) {
+//    let array = ['ab'];
+//    let imagem = document.querySelector('.icone-favoritos');
 //
-//    imgFavoritos.addEventListener('click', () => {
-//        imgFavoritos.classList.add('favorito');
-//        console.log(imgFavoritos);
-//        let favoritos = document.querySelectorAll('.favorito')
-//        favoritos.forEach(elemento=> {
-//            //elemento.setAttribute('src', '/img/svg-favorites.svg')
-//        })
-//        
+//    imagem.addEventListener('click' , function () {
+//        if (array.indexOf('nome') == -1) {
+//            this.setAttribute('src', '/img/svg-favorites.svg')
+//            this.style.background = 'blue'
+//            array.push('nome');
+//            console.log(array);
+//            
+//        } else {
+//            this.setAttribute('src', '/img/svg-favoritos-vazia.svg')
+//            array.splice(nome);
+//            console.log(array);
+//            this.style.background = 'pink'
+//        }
 //    })
 //
-//    imgFavoritos.checked = 'false'
-//}
+//
+//};
+//
+//adicionarAosFavoritos('ab');
 
 

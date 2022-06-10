@@ -391,6 +391,12 @@ h2 {
     flex-wrap: wrap;
 }
 
+@media (max-width: 1084px) {
+    #fraquezas {
+        margin-bottom: 0;
+    }
+}
+
 .tag {
     background: #fdfdfd;
     padding: 0 1.1rem;
@@ -491,4 +497,6 @@ h4 {
     cursor: pointer;
     box-shadow: 2px 0px 1px 1px var(--cor-escura);
 }
+
+
 
