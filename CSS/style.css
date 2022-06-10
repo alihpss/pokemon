@@ -120,6 +120,7 @@ ul, li {
     position: sticky;
     top: 0;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 
@@ -344,7 +345,7 @@ ul, li {
 }
 
 #img-modal {
-    max-width: 100%;
+    max-width: 120%;
     margin-top: 6rem;
     position: relative;
     left: 2vmax;
@@ -391,12 +392,6 @@ h2 {
     flex-wrap: wrap;
 }
 
-@media (max-width: 1084px) {
-    #fraquezas {
-        margin-bottom: 0;
-    }
-}
-
 .tag {
     background: #fdfdfd;
     padding: 0 1.1rem;
@@ -432,18 +427,6 @@ h4 {
 .item span {
     width: 3rem;
     margin-right: 2rem;
-}
-
-@media (max-width: 1112px)  {
-    #hp {
-        margin-right: 2.8rem;
-    }
-}
-
-@media (max-width: 690px)  {
-    #hp {
-        margin-right: 3rem;
-    }
 }
 
 .bar-status {
@@ -498,5 +481,84 @@ h4 {
     box-shadow: 2px 0px 1px 1px var(--cor-escura);
 }
 
+@media screen and (max-width: 1112px)  {
+    #hp {
+        margin-right: 2.8rem;
+    }
+}
 
+@media screen and (max-width: 1084px) {
+    #fraquezas {
+        margin-bottom: 0;
+    }
+}
 
+@media screen and (max-width: 900px) {
+    body {
+        font-size: 14px;
+    }
+    .pokemons {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 803px) {
+    #div-name, .div-item {
+        margin-bottom: 0rem;
+    }
+
+    #tipo {
+        margin-bottom: 0.5rem;
+    }
+
+    #img-modal {
+        max-width: 130%;
+        left: 4vmax;
+    }
+}
+
+@media screen and  (max-width: 690px)  {
+    #hp {
+        margin-right: 3rem;
+    }
+}
+
+@media screen and (max-width: 650px) {
+
+    #img-modal {
+        width: 30%;
+        left: 0;
+        margin-top: 5rem;
+    }
+
+    #svg-modal {
+        left: 5rem;
+        margin:0;
+        position: absolute;
+        width: 4rem;
+        height: 4rem;
+    }
+
+    #modal {
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        margin: 0;
+        border-radius: 40px;
+
+    }
+
+    .lado-esquerdo {
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        height: 40%;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .lado-direito {
+        width: 100%;
+        height: 60vh;
+    }
+}

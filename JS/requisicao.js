@@ -54,6 +54,8 @@ const requisicaoPokemons = (limitePersonagens) => {
 
             filtro.addEventListener('click', function() {
 
+                carregarPokemons.style.zIndex = '-1'
+                carregarPokemons.style.opacity = '0'
 
                 let filtroAtivo = document.querySelectorAll('.ativo');
 
@@ -75,13 +77,14 @@ const requisicaoPokemons = (limitePersonagens) => {
 
                     
                     filtro.classList.add('ativo');
+                    
                     for (let index = 0; index < 21; index++) {
                         const todosPokemons = divPokemons[index];
                         todosPokemons.style.display = 'grid'
                     }
                 } else {
-                    carregarPokemons.style.zIndex = '0'
-                    carregarPokemons.style.opacity = '0'
+
+
 
                     for (let indiceParaDivs = 0; indiceParaDivs < 151; indiceParaDivs++) {
                         const divs = divPokemons[indiceParaDivs];
@@ -154,27 +157,41 @@ const pesquisaDePokemons = (divs) => {
     buscarPokemon.addEventListener('input', function () {
 
 
-    for (let index = 0; index < 151; index++) {
-        const div = divs[index];
-        let spanNomePokemon = div.querySelector('.span-name').textContent
-        let spanIdPokemon = div.querySelector('.id').textContent
+
 
             let pesquisa = new RegExp (this.value, 'i');
 
             if (this.value.length  > 0) {
+                for (let index = 0; index < 151; index++) {
+                    const div = divs[index];
+                    let spanNomePokemon = div.querySelector('.span-name').textContent
+                    let spanIdPokemon = div.querySelector('.id').textContent
+
+                    if (pesquisa.test(spanNomePokemon) || pesquisa.test(spanIdPokemon)) {
+                        div.style.display = 'grid'
+                    } else {
+                        div.style.display = 'none'
+                    }
+                }
                 carregarPokemons.style.opacity = 0;
                 carregarPokemons.style.zIndex = -1;
-                if (pesquisa.test(spanNomePokemon) || pesquisa.test(spanIdPokemon)) {
-                    div.style.display = 'grid'
-                } else {
-                    div.style.display = 'none'
-                }
+
             } else {
-                div.style.display = 'grid'
                 carregarPokemons.style.opacity = 1;
                 carregarPokemons.style.zIndex = 1;
+
+                for (let limite = 0; limite < 21; limite++) {
+                    const element = divs[limite];
+                    element.style.display = 'grid'
+                }
+
+                for (let max = 21; max <= 151; b++) {
+                    const elemento = divs[max];
+                    elemento.style.display = 'none'
+                }
+
+
             };
-        }
     })
 };
 
