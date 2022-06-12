@@ -244,8 +244,8 @@ ul, li {
     color: #ff3434;
 }
 .water {
-    border: 3px solid #398efb;
-    color: #398efb;
+    border: 3px solid #9cd8ff;
+    color: #9cd8ff;
 }
 .bug {
     border: 3px solid greenyellow;
@@ -256,20 +256,20 @@ ul, li {
     color: #d8bc76;
 }
 .poison {
-    border: 3px solid #6e2bb5;
-    color: #6e2bb5;
+    border: 3px solid #746ab0;
+    color: #746ab0;
 }
 .electric {
-    border: 3px solid #d1ce00;
-    color: #d1ce00;
+    border: 3px solid #ffce30;
+    color: #ffce30;
 }
 .ground {
     border: 3px solid #555400;
     color: #555400;
 }
 .fairy {
-    border: 3px solid #ff5ecf;
-    color: #ff5ecf;
+    border: 3px solid #d9a7d9;
+    color: #d9a7d9;
 }
 .fighting {
    border: 3px solid #af0000;
@@ -292,8 +292,8 @@ ul, li {
     color: #83c5c9;
 }
 .dragon {
-    border: 3px solid #1c4547;
-    color: #1c4547;
+    border: 3px solid #288ba8;
+    color: #288ba8;
 }
 
 #modal {
