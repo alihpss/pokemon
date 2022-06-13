@@ -55,7 +55,7 @@ nav {
 .menu-suspenso {
     background: var(--cor-principal);
     position: absolute;
-    width: 15vmax;
+    min-width: 11rem;
     height: 95px;
     display: none;
     margin: 20px 0;
@@ -81,7 +81,7 @@ nav {
     text-decoration: none;
     background-repeat: no-repeat;
     background-position: 0px 100%, 100% 100%;
-    background-size: 0% 6%;
+    background-size: 0% 5%;
     background-image: linear-gradient(
       rgb(155, 055, 255) 0%,
       rgb(204, 41, 0) 50%
@@ -91,7 +91,7 @@ nav {
   
 a, .menu-suspenso > li:hover {
     text-decoration: none;
-    background-size: 100% 7%;
+    background-size: 100% 5%;
   }
 
 a { 
@@ -105,6 +105,30 @@ ul, li {
 .conteudo {
     display: flex;
     position: relative;
+}
+
+#ativar-filtro {
+    display: none;
+    align-items: center;
+    margin-top: 1rem;
+    position: absolute;
+    left: 2rem;
+}
+
+#filtro {
+    background: url(/img/svg-filtro-inativo.svg) no-repeat;
+    background-size: cover;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: none;
+}
+
+#filtro , label {
+    user-select: none;
+}
+
+#filtro:hover , label:hover {
+    cursor: pointer;
 }
 
 #filtroPokemons {
@@ -190,12 +214,12 @@ ul, li {
     margin: 20px 1vmax;
     border: 1px solid black;
     box-shadow: 0px 0px 5px 1px #878788;
-    width: 70%;
+    width: 75%;
     text-transform: capitalize;
     background: white;
     cursor: pointer;
     user-select: none;
-    max-height: 18rem;
+    max-height: 19rem;
     font-weight: 500;
 }
 
@@ -244,56 +268,56 @@ ul, li {
     color: #ff3434;
 }
 .water {
-    border: 3px solid #9cd8ff;
-    color: #9cd8ff;
+    border: 3px solid #88A3D4;
+    color: #88A3D4;
 }
 .bug {
-    border: 3px solid greenyellow;
-    color: greenyellow;
+    border: 3px solid #9BBA48;
+    color: #9BBA48;
 }
 .normal {
-    border: 3px solid #d8bc76;
-    color: #d8bc76;
+    border: 3px solid #a0a29f;
+    color: #a0a29f;
 }
 .poison {
-    border: 3px solid #746ab0;
-    color: #746ab0;
+    border: 3px solid #AC6ACA;
+    color: #AC6ACA;
 }
 .electric {
     border: 3px solid #ffce30;
     color: #ffce30;
 }
 .ground {
-    border: 3px solid #555400;
-    color: #555400;
+    border: 3px solid #CE8056;
+    color: #CE8056;
 }
 .fairy {
     border: 3px solid #d9a7d9;
     color: #d9a7d9;
 }
 .fighting {
-   border: 3px solid #af0000;
-   color: #af0000;
+   border: 3px solid #C44D61;
+   color: #C44D61;
 }
 .psychic {
-    border: 3px solid #a13b82;
-    color: #a13b82;
+    border: 3px solid #EB8B85;
+    color: #EB8B85;
 }
 .rock{
-    border: 3px solid #b1a667;
-    color: #b1a667;
+    border: 3px solid #8BCEC1;
+    color: #8BCEC1;
 }
 .ghost {
-    border: 3px solid #424242;
-    color: #424242;
+    border: 3px solid #616EB7;
+    color: #616EB7;
 }
 .ice, .flying {
-    border: 3px solid #83c5c9;
-    color: #83c5c9;
+    border: 3px solid #8BCEC1;
+    color: #8BCEC1;
 }
 .dragon {
-    border: 3px solid #288ba8;
-    color: #288ba8;
+    border: 3px solid #2C6AC1;
+    color: #2C6AC1;
 }
 
 #modal {
@@ -491,14 +515,28 @@ h4 {
     #fraquezas {
         margin-bottom: 0;
     }
+
+    .pokemons {
+        max-height: 15rem;
+    }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 970px) {
     body {
         font-size: 14px;
     }
     .pokemons {
         width: 90%;
+    }
+
+    .itens:hover .menu-suspenso {
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .menu-suspenso > li {
+        margin: 0;
+        padding: 0 0 5px 0;
     }
 }
 
@@ -515,6 +553,10 @@ h4 {
         max-width: 130%;
         left: 4vmax;
     }
+
+    .pokemons {
+        max-height: 13rem;
+    }
 }
 
 @media screen and  (max-width: 690px)  {
@@ -526,26 +568,26 @@ h4 {
 @media screen and (max-width: 650px) {
 
     #img-modal {
-        width: 30%;
+        width: 35%;
         left: 0;
-        margin-top: 5rem;
+        margin: 2rem 0 0 4rem;
     }
 
     #svg-modal {
         left: 5rem;
         margin:0;
         position: absolute;
-        width: 4rem;
-        height: 4rem;
+        width: 3rem;
+        height: 2rem;
     }
 
     #modal {
         width: 100%;
         height: 100%;
+        max-height: 100%;
         flex-direction: column;
         margin: 0;
         border-radius: 40px;
-
     }
 
     .lado-esquerdo {
@@ -553,12 +595,59 @@ h4 {
         width: 100%;
         justify-content: center;
         align-items: center;
-        height: 40%;
+        height: 25%;
         border-radius: 20px 20px 0 0;
     }
 
     .lado-direito {
         width: 100%;
-        height: 60vh;
+        height: 75%;
+        padding: 1rem 2rem;
+        border-radius: 0;
+    }
+
+    #fraquezas {
+        margin-bottom: 0.1rem;
+    }
+
+    h3 {
+        margin-bottom: 0.5rem;
+    }
+
+    #info li span {
+        margin-bottom: 0.1rem;
+    }
+
+    #hp {
+        margin-right: 2.01rem;
+    }
+
+    .bar-status {
+        max-width: 28rem;
+    }
+}
+
+@media screen and (max-width: 602px) {
+
+    body {
+        font-size: 12px;
+    }
+    #hp {
+        margin-right: 2.4rem;
+    }
+
+    #ativar-filtro {
+        display: flex;
+    }
+
+    #lista-pokemons {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    body {
+        font-size: 10px;
     }
 }
