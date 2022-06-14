@@ -12,6 +12,8 @@ const elementos = ['Grass', 'Fire', 'Water', 'Bug', 'Normal', 'Poison', 'Electri
 const carregarPokemons = document.querySelector('#carregar')
 
 let menuFiltros = document.querySelector('#filtroPokemons')
+let ativarFiltro = document.querySelector('#ativar-filtro')
+let imgFiltro = document.querySelector('#filtro')
 
 
 const requisicaoPokemons = (limitePersonagens) => {
@@ -37,15 +39,18 @@ const requisicaoPokemons = (limitePersonagens) => {
 
         pesquisaDePokemons(divPokemons);
 
+        modal.style.display = 'flex';
         divPokemons.forEach(caixaPokemon => {
             caixaPokemon.addEventListener('click', () => {
                 let idPokemon = Number(caixaPokemon.querySelector('.id').textContent) -1;
                 fraquezaPokemon(caixaPokemon)
     
+
                 modal.style.zIndex = 1;
                 modal.style.opacity = 1;
                         
                 definirModal(gerarObjetoPokemon(pokemons[idPokemon]))
+                
             })
         });
 
@@ -60,30 +65,40 @@ const requisicaoPokemons = (limitePersonagens) => {
             }
 
         }
+        console.log(menuFiltros.value);
+        if (menuFiltros.value != 'none') {
+            filtrar(filtros,divPokemons);
+        }
 
-        let ativarFiltro = document.querySelector('#ativar-filtro')
-
-        ativarFiltro.addEventListener('click', () => {
-            console.log(menuFiltros.classList.value);
-            if (menuFiltros.style.display == 'flex') {
-                //menuFiltros.classList.remove('invisivel')
-                menuFiltros.style.display = 'none'
-
-
-                return
-            } else {    
-      
-                menuFiltros.style.display = 'flex'
-                filtrar(filtros,divPokemons);
-
-            }
-
-
-        })
 
 
     });
 };
+
+ativarFiltro.addEventListener('click', () => {
+
+
+    if (menuFiltros.style.display == 'none') {
+
+        menuFiltros.style.display = 'flex'
+        ativarFiltro.style.left = '8rem'
+        menuFiltros.value = 'flex'
+        imgFiltro.style.background = 'url(/img/svg-filtro-ativo.svg)'
+        imgFiltro.style.backgroundSize = 'cover'
+
+        console.log(document.screen.width);
+
+    } else {    
+
+        menuFiltros.style.display = 'none'
+        ativarFiltro.style.left = '2rem'
+        menuFiltros.value = 'none'
+        imgFiltro.style.background = 'url(/img/svg-filtro-inativo.svg)'
+        imgFiltro.style.backgroundSize = 'cover'
+    }
+
+
+})
 
 
 
@@ -150,14 +165,16 @@ const pesquisaDePokemons = (divs) => {
             carregarPokemons.style.opacity = 1;
             carregarPokemons.style.zIndex = 1;
 
-            for (let limite = 0; limite < 21; limite++) {
-                const element = divs[limite];
-                element.style.display = 'grid'
-            }
+            for (const iterator in divs) {
 
-            for (let max = 21; max <= 151; max++) {
-                const elemento = divs[max];
-                elemento.style.display = 'none'
+                if ( iterator >= 0) {
+                    if (iterator < limitePersonagens) {
+                        divs[iterator].style.display = 'grid';
+                    } else {
+                        divs[iterator].style.display = 'none';
+                    }
+                }
+    
             }
 
 

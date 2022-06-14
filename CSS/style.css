@@ -116,7 +116,7 @@ ul, li {
 }
 
 #filtro {
-    background: url(/img/svg-filtro-inativo.svg) no-repeat;
+    background: url(/img/svg-filtro-ativo.svg) no-repeat;
     background-size: cover;
     width: 1.5rem;
     height: 1.5rem;
@@ -325,7 +325,7 @@ ul, li {
 }
 
 #modal {
-    display: flex;
+    display: none;
     width: 60%;
     max-height: 38rem;
     position: fixed;
@@ -629,6 +629,14 @@ h4 {
     .bar-status {
         max-width: 28rem;
     }
+
+    #filtroPokemons {
+        padding-left: 0;
+    }
+
+    #buscarPokemon {
+        margin: 2rem auto;
+    }
 }
 
 @media screen and (max-width: 602px) {
@@ -642,11 +650,20 @@ h4 {
 
     #ativar-filtro {
         display: flex;
-        
+        left: 8rem;
     }
 
     #lista-pokemons {
         width: 90%;
+    }
+
+    #filtroPokemons {
+        padding-left: 0;
+        display: flex;
+    }
+
+    #buscarPokemon {
+        margin: 2rem auto;
     }
 }
 
