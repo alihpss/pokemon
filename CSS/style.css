@@ -247,6 +247,10 @@ ul, li {
     display: none;
 }
 
+.visivel {
+    display: flex;
+}
+
 .pokemons span {
     padding-bottom: 15px;
 }
@@ -638,6 +642,7 @@ h4 {
 
     #ativar-filtro {
         display: flex;
+        
     }
 
     #lista-pokemons {

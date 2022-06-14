@@ -12,7 +12,7 @@ const elementos = ['Grass', 'Fire', 'Water', 'Bug', 'Normal', 'Poison', 'Electri
 const carregarPokemons = document.querySelector('#carregar')
 
 let menuFiltros = document.querySelector('#filtroPokemons')
-const ativarFiltro = document.querySelector('#ativar-filtro')
+
 
 const requisicaoPokemons = (limitePersonagens) => {
     const getUrl = id => `https://pokeapi.co/api/v2/pokemon/${id}`;
@@ -49,68 +49,37 @@ const requisicaoPokemons = (limitePersonagens) => {
             })
         });
 
-        ativarFiltro.addEventListener('click', () => {
-            console.log(menuFiltros);
-            menuFiltros.style.display = 'none'
-        })
-        filtros.forEach(filtro => {
-
-            filtro.classList.add(filtro.innerText.toLowerCase())
-            filtro.style.border ='none';
-
-            filtro.addEventListener('click', function() {
-
-                carregarPokemons.style.zIndex = '-1'
-                carregarPokemons.style.opacity = '0'
-
-                let filtroAtivo = document.querySelectorAll('.ativo');
-
-                if (filtroAtivo.length > 0) {
-                    filtroAtivo[0].classList.remove('ativo');
-                };
-
-                filtro.classList.add('ativo');
-
-                divPokemons.forEach(pokemonDiv => {
-                    pokemonDiv.style.display = 'none'
-                });
-
-
-                if (filtro.innerText == 'All' || filtro.innerText == 'all') {
-
-                    carregarPokemons.style.zIndex = '1'
-                    carregarPokemons.style.opacity = '1'
-
-                    
-                    filtro.classList.add('ativo');
-                    
-                    for (let index = 0; index < 21; index++) {
-                        const todosPokemons = divPokemons[index];
-                        todosPokemons.style.display = 'grid'
-                    }
-                } else {
-
-                    for (let indiceParaDivs = 0; indiceParaDivs < 151; indiceParaDivs++) {
-                        const divs = divPokemons[indiceParaDivs];
-                        let tipo2 = divs.querySelector('.tipo-secundario')
-
-                        if (divs.classList[1] == String(filtro.innerText).toLowerCase() || tipo2.textContent == String(filtro.innerText).toLowerCase()){
-                            divs.style.display = 'grid'
-                        } else {
-                            divs.style.display = 'none'
-                        };
-                    }
-                };
-            });
-        });
-
         for (const iterator in divPokemons) {
-            if (iterator >= limitePersonagens) {
-                divPokemons[iterator].style.display = 'none';
-            } else {
-                divPokemons[iterator].style.display = 'grid';
+
+            if ( iterator > 0) {
+                if (iterator < limitePersonagens) {
+                    divPokemons[iterator].style.display = 'grid';
+                } else {
+                    divPokemons[iterator].style.display = 'none';
+                }
             }
+
         }
+
+        let ativarFiltro = document.querySelector('#ativar-filtro')
+
+        ativarFiltro.addEventListener('click', () => {
+            console.log(menuFiltros.classList.value);
+            if (menuFiltros.style.display == 'flex') {
+                //menuFiltros.classList.remove('invisivel')
+                menuFiltros.style.display = 'none'
+
+
+                return
+            } else {    
+      
+                menuFiltros.style.display = 'flex'
+                filtrar(filtros,divPokemons);
+
+            }
+
+
+        })
 
 
     });
@@ -123,7 +92,7 @@ carregarPokemons.addEventListener("click" , () => {
     limitePersonagens += 21
     if (limitePersonagens > 151 ) {
         limitePersonagens = 151
-        carregarPokemons.style.zIndex = '0'
+        carregarPokemons.style.zIndex = '-1'
         carregarPokemons.style.opacity = '0'
     }
 
@@ -195,5 +164,58 @@ const pesquisaDePokemons = (divs) => {
         };
     })
 };
+
+function filtrar(filtros, divPokemons) {
+    filtros.forEach(filtro => {
+
+        filtro.classList.add(filtro.innerText.toLowerCase())
+        filtro.style.border ='none';
+
+        filtro.addEventListener('click', function() {
+
+            carregarPokemons.style.zIndex = '-1'
+            carregarPokemons.style.opacity = '0'
+
+            let filtroAtivo = document.querySelectorAll('.ativo');
+
+            if (filtroAtivo.length > 0) {
+                filtroAtivo[0].classList.remove('ativo');
+            };
+
+            filtro.classList.add('ativo');
+
+            divPokemons.forEach(pokemonDiv => {
+                pokemonDiv.style.display = 'none'
+            });
+
+
+            if (filtro.innerText == 'All' || filtro.innerText == 'all') {
+
+                carregarPokemons.style.zIndex = '1'
+                carregarPokemons.style.opacity = '1'
+
+                
+                filtro.classList.add('ativo');
+                
+                for (let index = 0; index < 21; index++) {
+                    const todosPokemons = divPokemons[index];
+                    todosPokemons.style.display = 'grid'
+                }
+            } else {
+
+                for (let indiceParaDivs = 0; indiceParaDivs < 151; indiceParaDivs++) {
+                    const divs = divPokemons[indiceParaDivs];
+                    let tipo2 = divs.querySelector('.tipo-secundario')
+
+                    if (divs.classList[1] == String(filtro.innerText).toLowerCase() || tipo2.textContent == String(filtro.innerText).toLowerCase()){
+                        divs.style.display = 'grid'
+                    } else {
+                        divs.style.display = 'none'
+                    };
+                }
+            };
+        });
+    });
+}
 
 
