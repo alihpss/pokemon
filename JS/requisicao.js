@@ -21,14 +21,14 @@ const requisicaoPokemons = (limitePersonagens) => {
 
     const pokemonPromises = [];
 
-    for (let i = 1; i <= 800; i++) {
+    for (let i = 1; i <= 493; i++) {
         pokemonPromises.push(fetch(getUrl(i)).then(response => response.json()));
     }
 
     Promise.all(pokemonPromises)
     .then(pokemons => {
 
-        for (let index = 0; index < 800; index++) {
+        for (let index = 0; index < 493; index++) {
             let pokemon = pokemons[index]
             const types = pokemon.types.map(typeInfo => typeInfo.type.name);
             gerarNovoIcone( types[0], types[1],pokemon.id, pokemon.sprites.front_default, pokemon.name, types.join(' | '));
@@ -73,11 +73,12 @@ const requisicaoPokemons = (limitePersonagens) => {
     });
 };
 
+
 requisicaoPokemons(limitePersonagens);
 carregarPokemons.addEventListener("click" , () => {
     limitePersonagens += 21
-    if (limitePersonagens > 800 ) {
-        limitePersonagens = 800
+    if (limitePersonagens > 493 ) {
+        limitePersonagens = 493
         carregarPokemons.style.zIndex = '-1'
         carregarPokemons.style.opacity = '0'
     }
@@ -148,7 +149,7 @@ const pesquisaDePokemons = (divs) => {
             filtroAtivo[0].classList.remove('ativo');
         };
         if (this.value.length  > 0) {
-            for (let index = 0; index < 800; index++) {
+            for (let index = 0; index < 493; index++) {
                 const div = divs[index];
                 let spanNomePokemon = div.querySelector('.span-name').textContent
                 let spanIdPokemon = div.querySelector('.id').textContent
@@ -222,7 +223,7 @@ function filtrar(filtros, divPokemons) {
                 }
             } else {
 
-                for (let indiceParaDivs = 0; indiceParaDivs < 800; indiceParaDivs++) {
+                for (let indiceParaDivs = 0; indiceParaDivs < 493; indiceParaDivs++) {
                     const divs = divPokemons[indiceParaDivs];
                     let tipo2 = divs.querySelector('.tipo-secundario')
 

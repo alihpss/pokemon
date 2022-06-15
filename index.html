@@ -7,7 +7,6 @@
     <title>Pokémon</title>
 
     <link rel="stylesheet" href="/CSS/reset.css">
-    <link rel="stylesheet" href="/CSS/init-style.css">
     <link rel="stylesheet" href="/CSS/style.css">
 </head>
 
@@ -40,20 +39,28 @@
 
     <main>
         <section id="apresentacao">
-            <img src="/img/pokeballs.png" alt="" class="pokebolas">
 
             <img src="/img/pokemon-logo.png" alt="" id="img-principal">
             <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero eos cumque praesentium sunt nisi itaque tempore ipsum possimus, fugiat impedit aliquid similique fuga recusandae et voluptatem nesciunt! Incidunt, possimus a.</h1>
 
-            <img src="/img/pokemon-inicio.png" alt="" id="img-pokemons">
-            <img src="/img/pokemon-example.png" alt="" id="img-exemplo">
+            <div id="explicacaoUm">
+                <img src="/img/pokemon-inicio.png" alt="">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt ipsam, inventore iste, impedit earum necessitatibus id facilis ipsum nesciunt saepe nisi, et qui enim vitae optio excepturi. Ut, consectetur culpa!</p>
+            </div>
+
+            <div id="explicacaoDois">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, quasi vitae dolorum, ex nemo eius alias non eaque sequi officia atque! Quod maiores recusandae, ad nobis ducimus non provident odit.</p>
+                <img src="/img/hand.svg" alt="" id="exemplo-clique">
+                <img src="/img/pokemon-example.png" alt="">
+            </div>
+
         </section>
 
         <section id="pokedex">
             <div class="conteudo">
 
                 <div id="filtroPokemons">
-                    <input type="text" id="buscarPokemon" placeholder="Procure um pokémon">
+                    <input type="text" id="buscarPokemon" placeholder="Search pokémon">
 
                     <button class="botoes-filtro"><img src="/img/svg-pokebola.svg" alt="" class="svg-filtro"> all</button>
                     <button class="botoes-filtro"><img src="/img/svg-grass.svg" alt="" class="svg-filtro"> grass</button>
@@ -228,7 +235,8 @@
 
     </footer>
 
-    <script src="/JS/requisicao.js"></script>
+    <script src="/JS/animacao.js"></script>
+    <script async src="/JS/requisicao.js"></script>
     <script src="/JS/icones.js"></script>
 </body>
 </html>
