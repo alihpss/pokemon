@@ -131,5 +131,15 @@ const fraquezaPokemon = (caixaPokemon) => {
     });
 };
 
+const habilitarFiltros = (display, medidaLateral, imgFundo) => {
+    menuFiltros.style.display = display;
+    ativarFiltro.style.left = medidaLateral;
+    menuFiltros.value = display;
+    imgFiltro.style.background = imgFundo;
+    imgFiltro.style.backgroundSize = 'cover';
+}
+
+
+
 
 

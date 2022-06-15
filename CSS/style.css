@@ -102,6 +102,51 @@ ul, li {
     list-style: none;
 }
 
+.pokebolas {
+    display: inline-block;
+    width: 10%;
+}
+
+#img-principal {
+    animation: myAnim 1s ease 4s 1 normal forwards;
+    display: block;
+    margin: 0 auto;
+    width: 40%;
+}
+
+@keyframes myAnim {
+	0%,
+	100% {
+		transform: translateX(0%);
+		transform-origin: 50% 50%;
+	}
+
+	15% {
+		transform: translateX(-30px) rotate(-6deg);
+	}
+
+	30% {
+		transform: translateX(15px) rotate(6deg);
+	}
+
+	45% {
+		transform: translateX(-15px) rotate(-3.6deg);
+	}
+
+	60% {
+		transform: translateX(9px) rotate(2.4deg);
+	}
+
+	75% {
+		transform: translateX(-6px) rotate(-1.2deg);
+	}
+}
+
+h1 {
+    width: 60%;
+    margin: 0 auto;
+}
+
 .conteudo {
     display: flex;
     position: relative;
@@ -208,6 +253,7 @@ ul, li {
 .pokemons {
     position: relative;
     display: grid;
+
     justify-items: center;
     grid-gap: 7px;
     border-radius: 18px;
@@ -315,13 +361,25 @@ ul, li {
     border: 3px solid #616EB7;
     color: #616EB7;
 }
-.ice, .flying {
+.ice {
     border: 3px solid #8BCEC1;
     color: #8BCEC1;
+}
+.steel {
+    border: 3px solid #6E9AA7;
+    color: #6E9AA7;
+}
+.dark {
+    border: 3px solid #3c3a41;
+    color: #3c3a41;
 }
 .dragon {
     border: 3px solid #2C6AC1;
     color: #2C6AC1;
+}
+.flying {
+    border: 3px solid #A6BBE8;
+    color: #A6BBE8;
 }
 
 #modal {
