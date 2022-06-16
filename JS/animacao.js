@@ -6,12 +6,15 @@ const modalAtivo = document.querySelector('#modal');
 window.addEventListener('scroll', () => {
 
     let valor = parseInt(100 * document.documentElement.scrollTop / (document.documentElement.scrollHeight - document.documentElement.clientHeight))
-    if (Number(valor) > 5) {
+    if (primeiraDiv.classList[0] == 'animacao') {
+    } else if (Number(valor) > 5) {
         primeiraDiv.style.visibility = 'visible';
         primeiraDiv.classList.add('animacao');
     }
     
-    if (Number(valor) > 23) {
+    if (segundaDiv.classList[0] == 'animacao') {
+        
+    } else if (Number(valor) > 24) {
         segundaDiv.style.visibility = 'visible';
         segundaDiv.classList.add('animacao');
         clique.classList.add('clique-animado');
