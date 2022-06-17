@@ -1,11 +1,21 @@
-const gerarNovoIcone = (tipo, tipoSecundario, id, atributoImg, nome, spanTipo) => {
-    const div = document.createElement('div');
+const menu = document.getElementById('lista-pokemons');
+
+function gerarDivs () {
+    for (let div = 0; div < 493; div++) {
+        const div = document.createElement('div');
+        
+        div.classList.add('pokemons');
+        menu.appendChild(div);
+    }
+}
+
+
+const gerarNovoIcone = (div,tipo, tipoSecundario, id, atributoImg, nome, spanTipo) => {
     const img = document.createElement('img')
     const strong = document.createElement('strong');
     const listaId = document.createElement('span');
     const tipo2 = document.createElement('span');
     const span2 = document.createElement('span');
-    const menu = document.getElementById('lista-pokemons');
     const svgTipo = document.createElement('img');
 
 
@@ -23,7 +33,6 @@ const gerarNovoIcone = (tipo, tipoSecundario, id, atributoImg, nome, spanTipo) =
     svgTipo.classList.add('svg-pokemon');
 
     strong.classList.add('span-name');
-    div.classList.add('pokemons');
     div.classList.add(tipo);
     listaId.classList.add('id');
     tipo2.classList.add('tipo-secundario');
@@ -36,8 +45,6 @@ const gerarNovoIcone = (tipo, tipoSecundario, id, atributoImg, nome, spanTipo) =
     div.appendChild(span2);
     div.appendChild(tipo2);
     div.appendChild(listaId);
-
-    menu.appendChild(div);
 };
 
 const definirModal = (pokemon) => {

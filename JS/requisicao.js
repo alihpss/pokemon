@@ -2,7 +2,6 @@ const listaPokemons = document.querySelector('#lista-pokemons');
 let filtros = document.querySelectorAll(`.botoes-filtro`);
 
 let limitePersonagens = 21;
-let inicioPersonagens = 0;
 
 const modal = document.querySelector('#modal');
 const fecharModal = document.querySelector('#close-modal');
@@ -15,6 +14,10 @@ let menuFiltros = document.querySelector('#filtroPokemons')
 let ativarFiltro = document.querySelector('#ativar-filtro')
 let imgFiltro = document.querySelector('#filtro')
 
+
+listaPokemons.style.opacity = '0'
+gerarDivs();
+let divPokemons = document.querySelectorAll('.pokemons');
 
 const requisicaoPokemons = (limitePersonagens) => {
     const getUrl = id => `https://pokeapi.co/api/v2/pokemon/${id}`;
@@ -31,10 +34,8 @@ const requisicaoPokemons = (limitePersonagens) => {
         for (let index = 0; index < 493; index++) {
             let pokemon = pokemons[index]
             const types = pokemon.types.map(typeInfo => typeInfo.type.name);
-            gerarNovoIcone( types[0], types[1],pokemon.id, pokemon.sprites.front_default, pokemon.name, types.join(' | '));
+            gerarNovoIcone( divPokemons[index],types[0], types[1],pokemon.id, pokemon.sprites.front_default, pokemon.name, types.join(' | '));
         };
-
-        let divPokemons = document.querySelectorAll('.pokemons');
 
         pesquisaDePokemons(divPokemons);
 

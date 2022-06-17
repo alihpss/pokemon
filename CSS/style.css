@@ -273,6 +273,32 @@ h1 {
     margin: 0 1rem 0 0.2rem;
 }
 
+#loading {
+    width: 5rem;
+    position: absolute;
+    height: 5rem;
+    margin: auto;
+    left: 20%;
+    right: 0;
+    top: 15rem;
+    z-index: 2;
+    border: 5px solid #6f759b;
+    border-top-color: red;
+    border-radius: 40px;
+    transform: scale(4);
+    animation: load 2s infinite;
+}
+
+@keyframes load {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 #lista-pokemons {
     background-color: inherit;
     width: 70%;
@@ -647,14 +673,14 @@ h4 {
     #img-modal {
         width: 35%;
         left: 0;
-        margin: 2rem 0 0 4rem;
+        margin: 2rem 0 0 3rem;
     }
 
     #svg-modal {
         left: 5rem;
         margin:0;
         position: absolute;
-        width: 3rem;
+        width: 2rem;
         height: 2rem;
     }
 
