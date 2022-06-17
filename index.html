@@ -13,26 +13,27 @@
 <body>
     <header>
         <img src="/img/pokemon-logo.png" alt="">
-        <img src="/img/Pokeball_icon-icons.com_67533.ico" alt="" style="height:18px;">
+        <img src="/img/Pokeball_icon-icons.com_67533.ico" alt="" style="height:18px;" id="icon">
 
         <nav>
+            <input type="button" value="Menu" id="botao-menu">
             <ul class="lista">
                 <li class="itens">
                     API
                     <ul class="menu-suspenso">
-                        <li><a href="">Sobre a API</a> </li>
+                        <li><a href="https://pokeapi.co/">Sobre a API</a> </li>
                     </ul>
                 </li>
 
                 <li class="itens"> Autor
                     <ul class="menu-suspenso">
-                        <li><a href="">Contato</a></li>
+                        <li><a href="mailto:ali.hps@hotmail.com">Contato</a></li>
 
-                        <li><a href="">Redes sociais</a></li>
+                        <li><a href="https://www.linkedin.com/in/ali-haidar-5b1638196/">Redes sociais</a></li>
                     </ul>
                 </li>
 
-                <li class="itens"><a href="">Outros projetos</a></li>
+                <li class="itens"><a href="https://www.github.com/alihpss">Outros projetos</a></li>
             </ul>
         </nav>
     </header>
@@ -41,15 +42,15 @@
         <section id="apresentacao">
 
             <img src="/img/pokemon-logo.png" alt="" id="img-principal">
-            <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero eos cumque praesentium sunt nisi itaque tempore ipsum possimus, fugiat impedit aliquid similique fuga recusandae et voluptatem nesciunt! Incidunt, possimus a.</h1>
+            <h1>This is a website about pokemons, made by a developer to training your skills with front-end. Here you can see some informations about pokemon. The perfect guide for who want to know more about  pokemon!</h1>
 
             <div id="explicacaoUm">
                 <img src="/img/pokemon-inicio.png" alt="">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt ipsam, inventore iste, impedit earum necessitatibus id facilis ipsum nesciunt saepe nisi, et qui enim vitae optio excepturi. Ut, consectetur culpa!</p>
+                <p>We collect information about more than 400 pokemon, untill 4 generation. You can see the name of pokemon, types, weaknesses and more right here.</p>
             </div>
 
             <div id="explicacaoDois">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, quasi vitae dolorum, ex nemo eius alias non eaque sequi officia atque! Quod maiores recusandae, ad nobis ducimus non provident odit.</p>
+                <p>If you want to know more about a specific pokemon, you can search him, and just click it to open a banner with more information. When the banners are open, you will see the stats of pokemon and more.</p>
                 <img src="/img/hand.svg" alt="" id="exemplo-clique">
                 <img src="/img/pokemon-example.png" alt="">
             </div>
@@ -58,6 +59,12 @@
 
         <section id="pokedex">
             <div class="conteudo">
+
+                <input type="button" value="Filter:  " id="selecionar-filtros">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-short" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"/>
+                  </svg>
 
                 <div id="filtroPokemons">
                     <input type="text" id="buscarPokemon" placeholder="Search pokémon">
@@ -82,7 +89,6 @@
                     <button class="botoes-filtro"><img src="/img/svg-dark.svg" alt="" class="svg-filtro">dark</button>
                     <button class="botoes-filtro"><img src="/img/svg-flying.svg" alt="" class="svg-filtro">flying</button>
                 </div>
-
                 <div id="ativar-filtro">
                     <label for="filtro">Filter:</label>
                     <input type="button" value="" id="filtro" name="filtro">

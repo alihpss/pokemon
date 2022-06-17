@@ -14,7 +14,7 @@ window.addEventListener('scroll', () => {
     
     if (segundaDiv.classList[0] == 'animacao') {
         
-    } else if (Number(valor) > 24) {
+    } else if (Number(valor) > 23) {
         segundaDiv.style.visibility = 'visible';
         segundaDiv.classList.add('animacao');
         clique.classList.add('clique-animado');
@@ -24,4 +24,29 @@ window.addEventListener('scroll', () => {
         modalAtivo.style.opacity = 0;
         modalAtivo.style.zIndex = -1;
     }
+});
+
+const botaoMenu = document.querySelector('#botao-menu')
+const lista = document.querySelector('.lista'); 
+botaoMenu.addEventListener('click' , () => {
+
+    if (lista.style.overFlow == 'visible') {
+        lista.style.overFlow = 'invisible'
+        lista.style.height = '0rem'
+
+        return
+    }
+
+    lista.style.overFlow = 'visible'
+    lista.style.height = '20rem'
+});
+
+const abrirFiltros = document.getElementById('selecionar-filtros')
+const listaFiltros = document.getElementById('filtroPokemons')
+abrirFiltros.addEventListener('click', () => {
+    if (listaFiltros.style.height == '200px' || listaFiltros.style.height == 'auto') {
+        listaFiltros.style.height = '0'  
+        return
+    }
+    listaFiltros.style.height = '200px'  
 })
