@@ -115,10 +115,10 @@ ativarFiltro.addEventListener('click', () => {
 
 
     if (menuFiltros.style.display == 'none') {
-        habilitarFiltros('flex', '8rem', 'url(/img/svg-filtro-ativo.svg)');
+        habilitarFiltros('flex', '8rem', 'url(img/svg-filtro-ativo.svg)');
         carregarPokemons.style.margin = '50px 52%'
     } else {    
-        habilitarFiltros('none', '2rem','url(/img/svg-filtro-inativo.svg)');
+        habilitarFiltros('none', '2rem','url(img/svg-filtro-inativo.svg)');
         carregarPokemons.style.margin = '50px auto'
     }
 })

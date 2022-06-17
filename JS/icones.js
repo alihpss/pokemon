@@ -20,7 +20,7 @@ const gerarNovoIcone = (div,tipo, tipoSecundario, id, atributoImg, nome, spanTip
 
 
 
-    svgTipo.setAttribute('src', `/img/svg-${tipo}.svg`);
+    svgTipo.setAttribute('src', `img/svg-${tipo}.svg`);
     img.setAttribute('src', atributoImg);
 
 
@@ -70,9 +70,9 @@ const definirModal = (pokemon) => {
         document.querySelector('#bar-velocidade')
     ];
 
-    ladoEsquerdo.style.background = `url(/img/bg-${pokemon.tipo[0]}.svg)`;
+    ladoEsquerdo.style.background = `url(img/bg-${pokemon.tipo[0]}.svg)`;
     ladoEsquerdo.style.backgroundSize = `cover`;
-    itemTipo.setAttribute('src', `/img/svg-${pokemon.tipo[0]}.svg`);
+    itemTipo.setAttribute('src', `img/svg-${pokemon.tipo[0]}.svg`);
     imgModal.setAttribute('src','');
     imgModal.setAttribute('src', pokemon.img);
     pokemonNome.textContent = pokemon.nome;
