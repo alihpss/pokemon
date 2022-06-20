@@ -7,6 +7,7 @@ const modal = document.querySelector('#modal');
 const fecharModal = document.querySelector('#close-modal');
 
 const elementos = ['Grass', 'Fire', 'Water', 'Bug', 'Normal', 'Poison', 'Electric', 'Ground', 'Fairy', 'Fighting', 'Psychic', 'Rock', 'Ghost', 'Ice', 'Dragon'];
+let selecaoDeFiltros = document.querySelector('#selecionar-filtros')
 
 const carregarPokemons = document.querySelector('#carregar');
 
@@ -58,7 +59,7 @@ const requisicaoPokemons = (limitePersonagens) => {
                 };
             };
         };
-        
+
         if (listaFiltros.value != 'none') {
             filtrar(filtros,divPokemons);
         };
@@ -157,7 +158,6 @@ const pesquisaDePokemons = (divs) => {
 };
 
 function filtrar(filtros, divPokemons) {
-    let selecaoDeFiltros = document.querySelector('#selecionar-filtros')
     filtros.forEach(filtro => {
 
         filtro.classList.add(filtro.innerText.toLowerCase())
