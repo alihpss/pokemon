@@ -8,8 +8,6 @@ function gerarDivs () {
         menu.appendChild(div);
     }
 }
-
-
 const gerarNovoIcone = (div,tipo, tipoSecundario, id, atributoImg, nome, spanTipo) => {
     const img = document.createElement('img')
     const strong = document.createElement('strong');
@@ -18,12 +16,8 @@ const gerarNovoIcone = (div,tipo, tipoSecundario, id, atributoImg, nome, spanTip
     const span2 = document.createElement('span');
     const svgTipo = document.createElement('img');
 
-
-
     svgTipo.setAttribute('src', `img/svg-${tipo}.svg`);
     img.setAttribute('src', atributoImg);
-
-
 
     strong.textContent = nome;
     span2.textContent = spanTipo;
@@ -36,7 +30,6 @@ const gerarNovoIcone = (div,tipo, tipoSecundario, id, atributoImg, nome, spanTip
     div.classList.add(tipo);
     listaId.classList.add('id');
     tipo2.classList.add('tipo-secundario');
-
 
     div.appendChild(svgTipo);
 
@@ -95,7 +88,7 @@ const definirModal = (pokemon) => {
 
         liNova.classList.add('tag')
         liNova.textContent = tipo;
-        liNova.classList.add(pokemon.tipo[indice])
+        liNova.classList.add(pokemon.tipo[indice]);
         listaTipoPokemon.appendChild(liNova);
     };
 
@@ -105,11 +98,10 @@ const definirModal = (pokemon) => {
 
     for (let valor = 0; valor < stats.length; valor++) {
         const statsAtual = stats[valor];
-        statsAtual.style.width = `${pokemon.stats[valor].base_stat}%`
+        statsAtual.style.width = `${pokemon.stats[valor].base_stat}%`;
     };
 
 };
-
 const fraquezaPokemon = (caixaPokemon) => {
     let nomeDaClasse = caixaPokemon.classList[1];
 
@@ -139,9 +131,9 @@ const fraquezaPokemon = (caixaPokemon) => {
 };
 
 const habilitarFiltros = (display, medidaLateral, imgFundo) => {
-    menuFiltros.style.display = display;
+    listaDeFiltros.style.display = display;
     ativarFiltro.style.left = medidaLateral;
-    menuFiltros.value = display;
+    listaDeFiltros.value = display;
     imgFiltro.style.background = imgFundo;
     imgFiltro.style.backgroundSize = 'cover';
 }
