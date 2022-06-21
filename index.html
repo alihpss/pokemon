@@ -59,6 +59,8 @@
         <section id="pokedex">
             <div class="conteudo">
 
+                <input type="button" value="Filter:  " id="selecionar-filtros" class="ativar-filtro">
+
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-short" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"/>
                   </svg>
@@ -66,27 +68,27 @@
                 <div id="filtroPokemons">
                     <input type="text" id="buscarPokemon" placeholder="Search pokémon">
 
-                    <button class="botoes-filtro"><img src="img/svg-pokebola.svg" alt="" class="svg-filtro"> all</button>
-                    <button class="botoes-filtro"><img src="img/svg-grass.svg" alt="" class="svg-filtro"> grass</button>
-                    <button class="botoes-filtro"><img src="img/svg-fire.svg" alt="" class="svg-filtro"> fire</button>
-                    <button class="botoes-filtro"><img src="img/svg-water.svg" alt="" class="svg-filtro"> water</button>
-                    <button class="botoes-filtro"><img src="img/svg-bug.svg" alt="" class="svg-filtro"> bug</button>
-                    <button class="botoes-filtro"><img src="img/svg-normal.svg" alt="" class="svg-filtro"> normal</button>
-                    <button class="botoes-filtro"><img src="img/svg-poison.svg" alt="" class="svg-filtro"> poison</button>
-                    <button class="botoes-filtro"><img src="img/svg-electric.svg" alt="" class="svg-filtro"> electric</button>
-                    <button class="botoes-filtro"><img src="img/svg-ground.svg" alt="" class="svg-filtro"> ground</button>
-                    <button class="botoes-filtro"><img src="img/svg-fairy.svg" alt="" class="svg-filtro"> fairy</button>
-                    <button class="botoes-filtro"><img src="img/svg-fighting.svg" alt="" class="svg-filtro"> fighting</button>
-                    <button class="botoes-filtro"><img src="img/svg-psychic.svg" alt="" class="svg-filtro"> psychic</button>
-                    <button class="botoes-filtro"><img src="img/svg-rock.svg" alt="" class="svg-filtro"> rock</button>
-                    <button class="botoes-filtro"><img src="img/svg-ghost.svg" alt=""class="svg-filtro"> ghost</button>
-                    <button class="botoes-filtro"><img src="img/svg-ice.svg" alt="" class="svg-filtro"> ice</button>
-                    <button class="botoes-filtro"><img src="img/svg-dragon.svg" alt="" class="svg-filtro"> dragon</button>
-                    <button class="botoes-filtro"><img src="img/svg-steel.svg" alt="" class="svg-filtro"> steel</button>
+                    <button class="botoes-filtro"><img src="img/svg-pokebola.svg" alt="" class="svg-filtro">all</button>
+                    <button class="botoes-filtro"><img src="img/svg-grass.svg" alt="" class="svg-filtro">grass</button>
+                    <button class="botoes-filtro"><img src="img/svg-fire.svg" alt="" class="svg-filtro">fire</button>
+                    <button class="botoes-filtro"><img src="img/svg-water.svg" alt="" class="svg-filtro">water</button>
+                    <button class="botoes-filtro"><img src="img/svg-bug.svg" alt="" class="svg-filtro">bug</button>
+                    <button class="botoes-filtro"><img src="img/svg-normal.svg" alt="" class="svg-filtro">normal</button>
+                    <button class="botoes-filtro"><img src="img/svg-poison.svg" alt="" class="svg-filtro">poison</button>
+                    <button class="botoes-filtro"><img src="img/svg-electric.svg" alt="" class="svg-filtro">electric</button>
+                    <button class="botoes-filtro"><img src="img/svg-ground.svg" alt="" class="svg-filtro">ground</button>
+                    <button class="botoes-filtro"><img src="img/svg-fairy.svg" alt="" class="svg-filtro">fairy</button>
+                    <button class="botoes-filtro"><img src="img/svg-fighting.svg" alt="" class="svg-filtro">fighting</button>
+                    <button class="botoes-filtro"><img src="img/svg-psychic.svg" alt="" class="svg-filtro">psychic</button>
+                    <button class="botoes-filtro"><img src="img/svg-rock.svg" alt="" class="svg-filtro">rock</button>
+                    <button class="botoes-filtro"><img src="img/svg-ghost.svg" alt=""class="svg-filtro">ghost</button>
+                    <button class="botoes-filtro"><img src="img/svg-ice.svg" alt="" class="svg-filtro">ice</button>
+                    <button class="botoes-filtro"><img src="img/svg-dragon.svg" alt="" class="svg-filtro">dragon</button>
+                    <button class="botoes-filtro"><img src="img/svg-steel.svg" alt="" class="svg-filtro">steel</button>
                     <button class="botoes-filtro"><img src="img/svg-dark.svg" alt="" class="svg-filtro">dark</button>
                     <button class="botoes-filtro"><img src="img/svg-flying.svg" alt="" class="svg-filtro">flying</button>
                 </div>
-                <div id="ativar-filtro">
+                <div class="ativar-filtro" id="ativar-filtro">
                     <label for="filtro">Filter:</label>
                     <input type="button" value="" id="filtro" name="filtro">
                 </div>

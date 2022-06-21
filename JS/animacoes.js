@@ -59,7 +59,7 @@ window.addEventListener('resize', function () {
     };
 });
 
-let ativarFiltro = document.querySelector('#ativar-filtro');
+let ativarFiltro = document.querySelector('.ativar-filtro');
 
 ativarFiltro.addEventListener('click', () => {
 
