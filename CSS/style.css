@@ -261,6 +261,23 @@ h1 {
     margin: 2rem 0;
 }
 
+#selecionar-filtros {
+    display: none;
+    position: absolute;
+    width: 70%;
+    height: 3rem;
+    padding: 5px 3rem;
+    border-radius: 0px;
+    border: 1px solid black;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+}
+
 .botoes-filtro {
     border: none; 
     background: none;
@@ -856,18 +873,6 @@ h4 {
 
     #selecionar-filtros {
         display: flex;
-        position: absolute;
-        width: 70%;
-        height: 3rem;
-        padding: 5px 3rem;
-        border-radius: 0px;
-        border: 1px solid black;
-        margin: auto;
-        left: 0;
-        right: 0;
-        top: 0;
-        font-weight: 500;
-        background: transparent;
     }
 
     .bi-arrow-down-short {

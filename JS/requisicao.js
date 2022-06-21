@@ -217,14 +217,15 @@ function filtrar(filtros, divPokemons, selecionar) {;
 
 const funcaoFiltroMobile = (selecaoDeFiltros, listaFiltros)  => {
     
-    selecaoDeFiltros.addEventListener('click', () => {
+    selecaoDeFiltros.addEventListener('click', (event) => {
+        event.preventDefault();
         if (listaFiltros.style.height == '200px' || listaFiltros.style.height == 'auto') {
             listaFiltros.style.height = '0';
             listaFiltros.style.opacity = '0';
-            return
+        } else {
+            listaFiltros.style.height = '200px';
+            listaFiltros.style.opacity = '1';
         }
-        listaFiltros.style.height = '200px';
-        listaFiltros.style.opacity = '1';
 
     });
 }
