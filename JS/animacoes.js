@@ -16,7 +16,7 @@ window.addEventListener('scroll', () => {
     
     if (segundaDiv.classList[0] == 'animacao') {
         
-    } else if (Number(valor) > 23) {
+    } else if (Number(valor) > 20) {
         segundaDiv.style.visibility = 'visible';
         segundaDiv.classList.add('animacao');
         clique.classList.add('clique-animado');
@@ -35,44 +35,25 @@ window.addEventListener('resize', function () {
     if (window.innerWidth > 500 ) {
         listaDeFiltros.style.display = 'none';
         lista.style.height = '20rem';
-        listaDeFiltros.style.opacity = '1'  ;
+        listaDeFiltros.style.opacity = '1';
 
     }  else {
         listaDeFiltros.style.height = '0';
         listaDeFiltros.style.display = 'flex';
         lista.style.height = '0rem';
-        lista.style.overFlow = 'invisible';
     }
 })
 
 botaoMenu.addEventListener('click' , () => {
 
     if (lista.style.overFlow == 'visible') {
-        lista.style.overFlow = 'invisible';
         lista.style.height = '0rem';
-
     } else {
-
-        lista.style.overFlow = 'visible';
         lista.style.height = '20rem';
-
     }
 });
 
-const abrirFiltros = document.getElementById('selecionar-filtros');
 
-abrirFiltros.addEventListener('click', () => {
-    if (listaDeFiltros.style.height == '200px' || listaDeFiltros.style.height == 'auto') {
-        listaDeFiltros.style.height = '0';
-        listaDeFiltros.style.opacity = '0';
- 
-        
-        return
-    }
-    listaDeFiltros.style.height = '200px';
-    listaDeFiltros.style.opacity = '1'  ;
-
-});
 
 window.addEventListener('resize', function () {
     if (window.innerWidth > 602) {

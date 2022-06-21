@@ -1,5 +1,5 @@
 const listaPokemons = document.querySelector('#lista-pokemons');
-const filtros = document.querySelectorAll(`.botoes-filtro`);
+const filtros = document.querySelectorAll('.botoes-filtro');
 
 let limitePersonagens = 21;
 
@@ -11,7 +11,7 @@ let selecaoDeFiltros = document.querySelector('#selecionar-filtros')
 
 const carregarPokemons = document.querySelector('#carregar');
 
-const listaFiltros = document.querySelector('#filtroPokemons');
+let listaFiltros = document.querySelector('#filtroPokemons');
 const imgFiltro = document.querySelector('#filtro');
 
 gerarDivs();
@@ -61,7 +61,7 @@ const requisicaoPokemons = (limitePersonagens) => {
         };
 
         if (listaFiltros.value != 'none') {
-            filtrar(filtros,divPokemons);
+            filtrar(filtros,divPokemons, selecaoDeFiltros);
         };
     });
 };
@@ -157,7 +157,7 @@ const pesquisaDePokemons = (divs) => {
     });
 };
 
-function filtrar(filtros, divPokemons) {
+function filtrar(filtros, divPokemons, selecionar) {
     filtros.forEach(filtro => {
 
         filtro.classList.add(filtro.innerText.toLowerCase())
@@ -192,6 +192,7 @@ function filtrar(filtros, divPokemons) {
                     todosPokemons.style.display = 'grid';
                 };
 
+                selecionar.value = 'Filter: All';
 
             } else {
 
@@ -199,6 +200,7 @@ function filtrar(filtros, divPokemons) {
                     const divs = divPokemons[indiceParaDivs];
                     let tipo2 = divs.querySelector('.tipo-secundario')
 
+                    selecionar.value = `Filter: ${filtro.innerText}`;
 
                     if (divs.classList[1] == String(filtro.innerText).toLowerCase() || tipo2.textContent == String(filtro.innerText).toLowerCase()){
                         divs.style.display = 'grid';
@@ -210,4 +212,17 @@ function filtrar(filtros, divPokemons) {
         });
     });
 };
+
+selecaoDeFiltros.addEventListener('click', () => {
+    if (listaFiltros.style.height == '200px' || listaFiltros.style.height == 'auto') {
+        listaFiltros.style.height = '0';
+        listaFiltros.style.opacity = '0';
+ 
+        
+        return
+    }
+    listaFiltros.style.height = '200px';
+    listaFiltros.style.opacity = '1'  ;
+
+});
 
