@@ -81,7 +81,7 @@ nav {
     border-radius: 10px;
 }
 
-.id, .tipo-secundario, .invisivel, #ativar-filtro, .menu-suspenso{
+.id, .tipo-secundario, .invisivel, #ativar-filtro, .menu-suspenso, #selecionar-filtros{
     display: none;
 }
 
@@ -766,6 +766,17 @@ h4 {
     #explicacaoUm {
         margin-bottom: 0;
     }
+
+    #ativar-filtro {
+        display: flex;
+        left: 8rem;
+    }
+
+    #lista-pokemons {
+        width: 90%;
+        margin-top: 50px;
+    }
+
 }
 
 @media screen and (max-width: 602px) {
@@ -777,18 +788,8 @@ h4 {
         margin-right: 2.4rem;
     }
 
-    #ativar-filtro {
-        display: flex;
-        left: 8rem;
-    }
-
     .conteudo {
         margin-top: 0;
-    }
-
-    #lista-pokemons {
-        width: 90%;
-        margin-top: 50px;
     }
 
     #filtroPokemons {
@@ -855,18 +856,32 @@ h4 {
     #icon {
         display: none;
     }
+
+    #ativar-filtro {
+        display: none;
+    }
+
+    .bi-arrow-down-short {
+        display: flex;
+        position: absolute;
+        top: 1rem;
+        right: 6rem;
+    }
+
     #filtroPokemons {
-    display: none;
-    position: absolute;
-    width: 70%;
-    margin: auto;
-    top: 3rem;
-    right: 0;
-    left: 0;
-    height: 200px;
+        display: none;
+        position: absolute;
+        width: 70%;
+        margin: auto;
+        top: 3rem;
+        right: 0;
+        left: 0;
+        height: 200px;
+        border: 1px solid;
     }
 
     #selecionar-filtros {
+        display: flex;
         position: absolute;
         width: 70%;
         height: 3rem;
@@ -891,7 +906,7 @@ h4 {
         height: 100%;
         z-index: 2;
         margin: 0 0 1rem 1rem ;
-        padding: 0.5rem;
+        padding: 0.6rem;
         font-size: 15px;
     }
 

@@ -158,7 +158,7 @@ const pesquisaDePokemons = (divs) => {
     });
 };
 
-function filtrar(filtros, divPokemons   ) {;
+function filtrar(filtros, divPokemons) {
     filtros.forEach(filtro => {
         
         filtro.classList.add(filtro.innerText.toLowerCase())
@@ -182,6 +182,8 @@ function filtrar(filtros, divPokemons   ) {;
 
             if (this.innerText == 'All' || this.innerText == 'all') {
 
+                selecaoDeFiltros.value = `Filter: All`
+
                 carregarPokemons.style.zIndex = '0'
                 carregarPokemons.style.opacity = '1'
 
@@ -195,7 +197,7 @@ function filtrar(filtros, divPokemons   ) {;
 
 
             } else {
-
+                selecaoDeFiltros.value = `Filter: ${String(this.innerText)}`
                 for (let indiceParaDivs = 0; indiceParaDivs < 493; indiceParaDivs++) {
                     const divs = divPokemons[indiceParaDivs];
                     let tipo2 = divs.querySelector('.tipo-secundario')

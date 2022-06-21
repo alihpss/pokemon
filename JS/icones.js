@@ -130,7 +130,7 @@ const fraquezaPokemon = (caixaPokemon) => {
     });
 };
 
-const habilitarFiltros = (display, medidaLateral, imgFundo) => {
+const habilitarFiltros = (ativarFiltro,display, medidaLateral, imgFundo) => {
     listaDeFiltros.style.display = display;
     ativarFiltro.style.left = medidaLateral;
     listaDeFiltros.value = display;

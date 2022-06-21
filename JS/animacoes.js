@@ -51,26 +51,35 @@ botaoMenu.addEventListener('click' , () => {
     }
 });
 
-
+let ativarFiltro = document.querySelectorAll('.ativar-filtro');
+let iconeFiltro = document.querySelector('#ativar-filtro');
 
 window.addEventListener('resize', function () {
-    if (window.innerWidth > 502) {
-        ativarFiltro.style.left = '8rem';
+    if (window.innerWidth > 500 && iconeFiltro.style.display == 'flex') {
+        iconeFiltro.style.left = '8rem';
     };
 });
 
-let ativarFiltro = document.querySelector('.ativar-filtro');
+ativarFiltro.forEach(ativar => {
+    ativar.addEventListener('click', () => {
 
-ativarFiltro.addEventListener('click', () => {
+        if (listaDeFiltros.style.display == 'none' || listaDeFiltros.style.display == '') {
+            if (window.innerWidth <= 500) {
+                habilitarFiltros(ativar,'flex', '0rem', 'url(img/svg-filtro-ativo.svg)');
+            } else {
+                habilitarFiltros(ativar,'flex', '8rem', 'url(img/svg-filtro-ativo.svg)');
+            }
+            
+        } else {    
+            if (window.innerWidth <= 500) {
+                habilitarFiltros(ativar,'none', '0rem', 'url(img/svg-filtro-ativo.svg)');
+            } else {
+                habilitarFiltros(ativar,'none', '2rem', 'url(img/svg-filtro-ativo.svg)');
+            }
+        };
+    });
+})
 
-
-    if (listaDeFiltros.style.display == 'none') {
-        console.log(window.innerWidth);
-        habilitarFiltros('flex', '8rem', 'url(img/svg-filtro-ativo.svg)');
-    } else {    
-        habilitarFiltros('none', '2rem','url(img/svg-filtro-inativo.svg)');
-    };
-});
         
 
 
