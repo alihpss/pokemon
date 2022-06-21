@@ -81,7 +81,7 @@ nav {
     border-radius: 10px;
 }
 
-.id, .tipo-secundario, .invisivel, #ativar-filtro, .menu-suspenso, #selecionar-filtros {
+.id, .tipo-secundario, .invisivel, #ativar-filtro, .menu-suspenso{
     display: none;
 }
 
@@ -259,24 +259,6 @@ h1 {
     width: 80%;
     padding: 10px;
     margin: 2rem 0;
-}
-
-#selecionar-filtros {
-    position: absolute;
-    width: 70%;
-    height: 3rem;
-    padding: 5px 3rem;
-    border-radius: 0px;
-    border: 1px solid black;
-    margin: auto;
-    left: 0;
-    right: 0;
-    top: 0;
-    font-weight: 500;
-    background: transparent;
-    cursor: pointer;
-    z-index: 2;
-    pointer-events: all;
 }
 
 .botoes-filtro {
@@ -810,6 +792,8 @@ h4 {
     }
 
     #filtroPokemons {
+        width: 20%;
+        position: relative;
         padding-left: 0;
         display: flex;
     }
@@ -872,6 +856,14 @@ h4 {
         display: none;
     }
 
+    #filtroPokemons {
+        display: flex;
+        position: absolute;
+        width: 50%;
+        top: 6rem;
+        border: 1px solid;
+    }
+
     .botoes-filtro {
         filter: brightness(1);
         opacity: 1;
@@ -885,6 +877,7 @@ h4 {
 
     #lista-pokemons {
         margin-top: 7rem;
+
     }
 
     #loading {

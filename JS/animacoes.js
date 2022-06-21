@@ -33,13 +33,9 @@ const lista = document.querySelector('.lista');
 
 window.addEventListener('resize', function () {
     if (window.innerWidth > 500 ) {
-        listaDeFiltros.style.display = 'none';
         lista.style.height = '20rem';
-        listaDeFiltros.style.opacity = '1';
 
     }  else {
-        listaDeFiltros.style.height = '0';
-        listaDeFiltros.style.display = 'flex';
         lista.style.height = '0rem';
     }
 })
@@ -59,12 +55,7 @@ botaoMenu.addEventListener('click' , () => {
 
 window.addEventListener('resize', function () {
     if (window.innerWidth > 502) {
-        listaDeFiltros.style.display = 'flex';
         ativarFiltro.style.left = '8rem';
-    };
-
-    if (window.innerWidth > 500) {
-        listaDeFiltros.style.height = 'auto';
     };
 });
 
@@ -74,6 +65,7 @@ ativarFiltro.addEventListener('click', () => {
 
 
     if (listaDeFiltros.style.display == 'none') {
+        console.log(window.innerWidth);
         habilitarFiltros('flex', '8rem', 'url(img/svg-filtro-ativo.svg)');
     } else {    
         habilitarFiltros('none', '2rem','url(img/svg-filtro-inativo.svg)');
