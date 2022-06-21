@@ -262,7 +262,6 @@ h1 {
 }
 
 #selecionar-filtros {
-    display: none;
     position: absolute;
     width: 70%;
     height: 3rem;
@@ -276,6 +275,8 @@ h1 {
     font-weight: 500;
     background: transparent;
     cursor: pointer;
+    z-index: 2;
+    pointer-events: all;
 }
 
 .botoes-filtro {
