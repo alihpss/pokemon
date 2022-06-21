@@ -872,38 +872,6 @@ h4 {
         display: none;
     }
 
-    #selecionar-filtros {
-        display: flex;
-    }
-
-    .bi-arrow-down-short {
-        display: flex;
-        position: absolute;
-        right: 5rem;
-        top: 1rem;
-        z-index: -1;
-    }
-
-    #ativar-filtro {
-        display: none;
-    }
-
-    #filtroPokemons {
-        display: flex;
-        position: absolute;
-        width: 70%;
-        top: 3rem;
-        left: 0px;
-        right: 0rem;
-        margin: auto;
-        height: 0;
-        z-index: 2;
-        opacity: 0;
-        border: 1px solid black;
-        border-top: none;
-        transition: 0.3s ease;
-    }   
-
     .botoes-filtro {
         filter: brightness(1);
         opacity: 1;

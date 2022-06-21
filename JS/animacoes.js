@@ -58,7 +58,7 @@ botaoMenu.addEventListener('click' , () => {
 
 
 window.addEventListener('resize', function () {
-    if (window.innerWidth > 602) {
+    if (window.innerWidth > 502) {
         listaDeFiltros.style.display = 'flex';
         ativarFiltro.style.left = '8rem';
     };
