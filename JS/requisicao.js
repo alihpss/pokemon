@@ -14,6 +14,7 @@ const carregarPokemons = document.querySelector('#carregar');
 let listaFiltros = document.querySelector('#filtroPokemons');
 const imgFiltro = document.querySelector('#filtro');
 
+
 gerarDivs();
 let divPokemons = document.querySelectorAll('.pokemons');
 
@@ -62,6 +63,7 @@ const requisicaoPokemons = (limitePersonagens) => {
 
         if (listaFiltros.value != 'none') {
             filtrar(filtros,divPokemons, selecaoDeFiltros);
+            funcaoFiltroMobile(selecaoDeFiltros, listaFiltros)
         };
     });
 };
@@ -157,13 +159,13 @@ const pesquisaDePokemons = (divs) => {
     });
 };
 
-function filtrar(filtros, divPokemons, selecionar) {
+function filtrar(filtros, divPokemons, selecionar) {;
     filtros.forEach(filtro => {
-
+        
         filtro.classList.add(filtro.innerText.toLowerCase())
         filtro.style.border ='none';
 
-        filtro.addEventListener('touchstart', function() {
+        filtro.addEventListener('click', function() {
             carregarPokemons.style.zIndex = '-1';
             carregarPokemons.style.opacity = '0';
 
@@ -173,19 +175,19 @@ function filtrar(filtros, divPokemons, selecionar) {
                 filtroAtivo[0].classList.remove('ativo');
             };
 
-            filtro.classList.add('ativo');
+            this.classList.add('ativo');
 
             divPokemons.forEach(pokemonDiv => {
                 pokemonDiv.style.display = 'none';
             });
 
-            if (filtro.innerText == 'All' || filtro.innerText == 'all') {
+            if (this.innerText == 'All' || this.innerText == 'all') {
 
                 carregarPokemons.style.zIndex = '0'
                 carregarPokemons.style.opacity = '1'
 
                 limitePersonagens = 21;
-                filtro.classList.add('ativo');
+                this.classList.add('ativo');
                 
                 for (let index = 0; index < 21; index++) {
                     const todosPokemons = divPokemons[index];
@@ -200,9 +202,9 @@ function filtrar(filtros, divPokemons, selecionar) {
                     const divs = divPokemons[indiceParaDivs];
                     let tipo2 = divs.querySelector('.tipo-secundario')
 
-                    selecionar.value = `Filter: ${filtro.innerText}`;
+                    selecionar.value = `Filter: ${this.innerText}`;
 
-                    if (divs.classList[1] == String(filtro.innerText).toLowerCase() || tipo2.textContent == String(filtro.innerText).toLowerCase()){
+                    if (divs.classList[1] == String(this.innerText).toLowerCase() || tipo2.textContent == String(filtro.innerText).toLowerCase()){
                         divs.style.display = 'grid';
                     } else {
                         divs.style.display = 'none';
@@ -213,17 +215,16 @@ function filtrar(filtros, divPokemons, selecionar) {
     });
 };
 
-selecaoDeFiltros.addEventListener('click', () => {
-    if (listaFiltros.style.height == '200px' || listaFiltros.style.height == 'auto') {
-        listaFiltros.style.height = '0';
-        listaFiltros.style.opacity = '0';
-        listaFiltros.style.pointerEvents = 'none';
-        
-        return
-    }
-    listaFiltros.style.height = '200px';
-    listaFiltros.style.opacity = '1';
-    listaFiltros.style.pointerEvents = 'all';
+const funcaoFiltroMobile = (selecaoDeFiltros, listaFiltros)  => {
+    
+    selecaoDeFiltros.addEventListener('click', () => {
+        if (listaFiltros.style.height == '200px' || listaFiltros.style.height == 'auto') {
+            listaFiltros.style.height = '0';
+            listaFiltros.style.opacity = '0';
+            return
+        }
+        listaFiltros.style.height = '200px';
+        listaFiltros.style.opacity = '1';
 
-});
-
+    });
+}

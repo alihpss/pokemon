@@ -16,7 +16,7 @@ window.addEventListener('scroll', () => {
     
     if (segundaDiv.classList[0] == 'animacao') {
         
-    } else if (Number(valor) > 20) {
+    } else if (Number(valor) > 16) {
         segundaDiv.style.visibility = 'visible';
         segundaDiv.classList.add('animacao');
         clique.classList.add('clique-animado');
