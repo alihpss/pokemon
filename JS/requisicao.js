@@ -163,7 +163,7 @@ function filtrar(filtros, divPokemons, selecionar) {
         filtro.classList.add(filtro.innerText.toLowerCase())
         filtro.style.border ='none';
 
-        filtro.addEventListener('click', function() {
+        filtro.addEventListener('touchstart', function() {
             carregarPokemons.style.zIndex = '-1';
             carregarPokemons.style.opacity = '0';
 
@@ -217,12 +217,13 @@ selecaoDeFiltros.addEventListener('click', () => {
     if (listaFiltros.style.height == '200px' || listaFiltros.style.height == 'auto') {
         listaFiltros.style.height = '0';
         listaFiltros.style.opacity = '0';
- 
+        listaFiltros.style.pointerEvents = 'none';
         
         return
     }
     listaFiltros.style.height = '200px';
-    listaFiltros.style.opacity = '1'  ;
+    listaFiltros.style.opacity = '1';
+    listaFiltros.style.pointerEvents = 'all';
 
 });
 

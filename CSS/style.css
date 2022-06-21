@@ -824,17 +824,17 @@ h4 {
     }
 
     .lista {
-    display: flex;
-    position: absolute;
-    justify-content: flex-end;
-    flex-direction: column;
-    background: var(--cor-escura);
-    margin-right: 0;
-    top: 6rem;
-    right: 0;
-    height: 0;
-    overflow: hidden;
-    transition: height 0.4s ease 0s;
+        display: flex;
+        position: absolute;
+        justify-content: flex-end;
+        flex-direction: column;
+        background: var(--cor-escura);
+        margin-right: 0;
+        top: 6rem;
+        right: 0;
+        height: 0;
+        overflow: hidden;
+        transition: height 0.4s ease 0s;
     }
 
     .menu-suspenso {
@@ -886,13 +886,12 @@ h4 {
         display: flex;
         position: absolute;
         width: 70%;
-        height: 80%;
         top: 3rem;
         left: 0px;
         right: 0rem;
         margin: auto;
         height: 0;
-        z-index: 1;
+        z-index: 2;
         opacity: 0;
         border: 1px solid black;
         border-top: none;
