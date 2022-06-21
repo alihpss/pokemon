@@ -164,7 +164,8 @@ function filtrar(filtros, divPokemons) {
         filtro.classList.add(filtro.innerText.toLowerCase())
         filtro.style.border ='none';
 
-        filtro.addEventListener('click', function() {
+        filtro.addEventListener('click', function(e) {
+            e.preventDefault()
             carregarPokemons.style.zIndex = '-1';
             carregarPokemons.style.opacity = '0';
 
