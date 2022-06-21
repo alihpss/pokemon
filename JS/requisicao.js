@@ -130,9 +130,9 @@ const pesquisaDePokemons = (divs) => {
                 let spanIdPokemon = div.querySelector('.id').textContent;
 
                 if (pesquisa.test(spanNomePokemon) || pesquisa.test(spanIdPokemon)) {
-                        div.style.display = 'grid';
+                    div.style.display = 'grid';
                 } else {
-                        div.style.display = 'none';
+                    div.style.display = 'none';
                 }
             }
 
@@ -192,14 +192,13 @@ function filtrar(filtros, divPokemons) {
                     todosPokemons.style.display = 'grid';
                 };
 
-                selecaoDeFiltros.value = 'Filter: All';
+
             } else {
 
                 for (let indiceParaDivs = 0; indiceParaDivs < 493; indiceParaDivs++) {
                     const divs = divPokemons[indiceParaDivs];
                     let tipo2 = divs.querySelector('.tipo-secundario')
 
-                    selecaoDeFiltros.value = `Filter: ${filtro.innerText}`;
 
                     if (divs.classList[1] == String(filtro.innerText).toLowerCase() || tipo2.textContent == String(filtro.innerText).toLowerCase()){
                         divs.style.display = 'grid';
@@ -211,3 +210,4 @@ function filtrar(filtros, divPokemons) {
         });
     });
 };
+
