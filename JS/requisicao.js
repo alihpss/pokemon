@@ -155,6 +155,7 @@ const pesquisaDePokemons = (divs) => {
                 };
             };
         };
+        selecaoDeFiltros.value = `Filter: All`
     });
 };
 
